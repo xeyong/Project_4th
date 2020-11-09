@@ -91,23 +91,23 @@
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.jsp">Shop</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shoping-cart.jsp">Features</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="blog.jsp">Blog</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="about.jsp">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.jsp">Contact</a>
 							</li>
 						</ul>
 					</div>	
