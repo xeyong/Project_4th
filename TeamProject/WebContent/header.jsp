@@ -51,8 +51,8 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+						<a href="member.jsp" class="flex-c-m trans-04 p-lr-25">
+							Login
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
@@ -74,7 +74,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="index.jsp" class="logo">
 						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
@@ -172,8 +172,8 @@
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							Help & FAQs
+						<a href="member.jsp" class="flex-c-m p-lr-10 trans-04">
+							Login
 						</a>
 
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
