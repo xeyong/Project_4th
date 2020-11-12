@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://use.fontawesome.com/5ac93d4ca8.js"></script>
-    <script src="script/bootstrap4-rating-input.js"></script>
+    <script src="js/bootstrap4-rating-input.js"></script>
     <style type="text/css">
       .rat { margin: 150px auto; font-size: 20px; }
     </style>
