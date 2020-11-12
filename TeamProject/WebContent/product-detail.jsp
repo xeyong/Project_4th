@@ -1,8 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 
 <jsp:include page="header.jsp" />
+
+<!-- 리뷰 팝업창  -->
+
+<div id="viewPowerReview_wrapper" class="popup_wrapper"
+	style="opacity: 0; visibility: hidden; position: fixed; overflow: auto; z-index: 100001; width: 100%; height: 100%; top: 0px; left: 0px; text-align: center; display: none;">
+	<div id="viewPowerReview" data-popup-initialized="true"
+		class="popup_content" aria-hidden="true" role="dialog" tabindex="-1"
+		style="opacity: 0; visibility: hidden; outline: none; text-align: left; position: relative; vertical-align: middle; margin-top: 0px;">
+		<div class="trans"></div>
+		<div class="layer">
+			<div class="lhd">
+				<a href="#none" class="link-attach-image"><img
+					src="http://board.makeshop.co.kr/board/special328/nasign_board8/20201107_205558_ro.jpg"
+					style="width: 413px; height: 550px;" class="view_attach_image"
+					alt=""></a> <a class="close"
+					href="javascript:power_review_view_close();">X</a>
+			</div>
+			<div class="lcont">
+				<div class="tiny">
+					<a href="/shop/shopdetail.html?REFPP=view&amp;branduid=3359844"><img
+						src="/shopimages/nasign/0030020000293.jpg" alt="">
+						<p>평점 4.5</p>
+						<p>리뷰 6</p> </a>
+				</div>
+				<div class="review" style="width: 461px;">
+					<div class="star-icon">
+						<span class="star"><em>★★★★★</em></span> <span class="survey">아주만족</span>
+						<span class="icon"> <img
+							src="/images/d3/modern_simple/ico_new_h38.png" alt="new"> <img
+							src="/images/d3/modern_simple/ico_mobile_h38.png" alt="mobile">
+							<img src="/images/d3/modern_simple/ico_camera_h38.png"
+							alt="image">
+						</span>
+					</div>
+					<div class="pr-options">
+						<dl>
+							<dt class="emp">구매한 옵션</dt>
+							<dd class="emp">컬러 : BLACK, 사이즈 : S</dd>
+						</dl>
+					</div>
+					<div class="content">사이즈때문에 고민되서 문의하고 주문했는데 잘 맞네요 가죽도 좋고 디자인도
+						예쁘고 넘넘 맘에 드네요</div>
+					<div class="pr-date">2020-11-07 nmoo*****</div>
+					<div class="reply">
+						<span>리뷰가 도움이 되셨나요?</span>
+						<p>
+							<a class="yes"
+								href="javascript:power_review_good('995509', 'N', 'view');"
+								style="background-color: rgb(255, 255, 255);"><span
+								style="color: rgb(0, 0, 0);">0</span></a> <a class="no"
+								href="javascript:power_review_bad('995509', 'N', 'view');"
+								style="background-color: rgb(255, 255, 255);"><span
+								style="color: rgb(0, 0, 0);">0</span></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- .layer -->
+	</div>
+	<div class="popup_align"
+		style="display: inline-block; vertical-align: middle; height: 100%;"></div>
+</div>
+
+<!-- 리뷰 팝업창 끝 -->
+
 
 <link href="css/product.css" rel="stylesheet" type="text/css">
 <!-- Cart -->
@@ -259,22 +325,17 @@
 				<!-- [OPENEDITOR] -->
 				<p style="margin: 0px; text-align: center;">
 					<span
-						style="font-family: &amp; quot; arial black&amp;quot; , sans-serif; font-size: 2.5em;"><b>LAMSKIN
+						style="font-family: &amp; amp; quot; arial black&amp;amp; quot; , sans-serif; font-size: 2.5em;"><b>LAMSKIN
 							FLARE SKIRT</b></span>
 				</p>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br>
 				<table width="750" align="center" border="0" cellspacing="0"
 					cellpadding="0">
 					<tbody>
 						<tr>
-							<td align="center">
-							<img style="margin-top: 50px;"
+							<td align="center"><img style="margin-top: 50px;"
 								src="http://nasign.cafe24.com/mall/product/detail/O9FHSK07_1.jpg?version=1"
-								imgborder="0"><br>
-								<img style="margin-top: 50px;"
+								imgborder="0"><br> <img style="margin-top: 50px;"
 								src="http://nasign.cafe24.com/mall/product/detail/O9FHSK07_2.jpg?version=1"
 								imgborder="0"><br> <img style="margin-top: 50px;"
 								src="http://nasign.cafe24.com/mall/product/detail/O9FHSK07_3.jpg?version=1"
@@ -523,7 +584,7 @@
 										href="javascript:power_review_view_show('995509', '00000', '0', 'detail');"><span></span><img
 											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::20201107_205558_ro.jpg"
 											alt=""></a>
-									<div class="attach-preview"></div></li>
+										<div class="attach-preview"></div></li>
 								</ul>
 							</div>
 							<div class="reply">
@@ -603,7 +664,7 @@
 										href="javascript:power_review_view_show('997709', '00000', '0', 'detail');"><span></span><img
 											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::20200128_220150.jpg"
 											alt=""></a>
-									<div class="attach-preview"></div></li>
+										<div class="attach-preview"></div></li>
 								</ul>
 							</div>
 							<div class="reply">
@@ -682,7 +743,7 @@
 										href="javascript:power_review_view_show('998162', '00000', '0', 'detail');"><span></span><img
 											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::20191225_192339_ro.jpg"
 											alt=""></a>
-									<div class="attach-preview"></div></li>
+										<div class="attach-preview"></div></li>
 								</ul>
 							</div>
 							<div class="reply">
@@ -949,266 +1010,5 @@
 		</div>
 </section>
 
-
-<!-- Related Products -->
-<section class="sec-relate-product bg0 p-t-45 p-b-105">
-	<div class="container">
-		<div class="p-b-45">
-			<h3 class="ltext-106 cl5 txt-center">Related Products</h3>
-		</div>
-
-		<!-- Slide2 -->
-		<div class="wrap-slick2">
-			<div class="slick2">
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-01.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Esprit Ruffle Shirt </a> <span class="stext-105 cl3"> $16.64
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-02.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Herschel supply </a> <span class="stext-105 cl3"> $35.31 </span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-03.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Only Check Trouser </a> <span class="stext-105 cl3"> $25.50
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-04.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Classic Trench Coat </a> <span class="stext-105 cl3"> $75.00
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-05.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Front Pocket Jumper </a> <span class="stext-105 cl3"> $34.75
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-06.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Vintage Inspired Classic </a> <span class="stext-105 cl3">
-									$93.20 </span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-07.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Shirt in Stretch Cotton </a> <span class="stext-105 cl3">
-									$52.66 </span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-08.jpg" alt="IMG-PRODUCT"> <a
-								href="#"
-								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View </a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html"
-									class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Pieces Metallic Printed </a> <span class="stext-105 cl3">
-									$18.96 </span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#"
-									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04"
-									src="images/icons/icon-heart-01.png" alt="ICON"> <img
-									class="icon-heart2 dis-block trans-04 ab-t-l"
-									src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
 <jsp:include page="footer.jsp" />
