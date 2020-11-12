@@ -103,7 +103,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 /*------------------------------------------------------------------
 [ Bootstrap ]*/
-.container {max-width: 1380px;}
+.container {max-width: 1300px;} /*수정 max-width: 1380px;*/
 
 @media (max-width: 1600px) {
   .container {max-width: 1200px;}
@@ -1913,7 +1913,6 @@ input.num-product::-webkit-inner-spin-button {
 .table-shopping-cart {
   border-collapse: collapse;
   width: 100%;
-  min-width: 680px;
 }
 
 .table-shopping-cart tr {
@@ -1927,7 +1926,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .table-shopping-cart .column-2 {
-  width: 220px;
+  width: 600px; /* 수정 220 */
   font-size: 15px;
 }
 
@@ -1942,6 +1941,18 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .table-shopping-cart .column-5 {
+  width: 172px;
+  padding-right: 50px;
+  text-align: right;
+  font-size: 16px;
+}
+.table-shopping-cart .column-6 {
+  width: 172px;
+  padding-right: 50px;
+  text-align: right;
+  font-size: 16px;
+}
+.table-shopping-cart .column-7 {
   width: 172px;
   padding-right: 50px;
   text-align: right;
@@ -2353,9 +2364,10 @@ input.num-product::-webkit-inner-spin-button {
 
 .ltext-103 {
   font-family: Poppins-Bold;
-  font-size: 36px;
+  font-size: 28px; /* 수정 28px */
   line-height: 1.1;
   text-transform: uppercase;
+  text-align: center; /* 수정 */
 }
 
 .ltext-104 {
@@ -2751,8 +2763,6 @@ input.num-product::-webkit-inner-spin-button {
 .bor17 {
   border: 1px solid #e6e6e6;
   border-radius: 25px;
-  width: 300px;
-  
 }
 
 /*---------------------------------------------*/
