@@ -37,6 +37,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
+
 <body class="animsition">
 	
 	<!-- Header -->
@@ -51,20 +52,20 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+						<a href="member/login.jsp" class="flex-c-m trans-04 p-lr-15">
+							로그인
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
+						<a href="#" class="flex-c-m trans-04 p-lr-15">
+							회원가입
 						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
+						
+						<a href="cart/cart.jsp" class="flex-c-m trans-04 p-lr-15">
+							장바구니
 						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
+						
+						<a href="cart/mypage.jsp" class="flex-c-m trans-04 p-lr-15">
+							마이페이지
 						</a>
 					</div>
 				</div>
@@ -74,40 +75,40 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="index.jsp" class="logo">
 						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
-								<a href="index.html">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
-								</ul>
-							</li>
+							
+<!-- 							<li> -->
+<!-- 								<a href="../index.jsp">Home</a> -->
+<!-- 							</li> -->
 
 							<li>
-								<a href="product.jsp">Shop</a>
+								<a href="index.jsp">HOME</a>
+							</li>
+
+
+	
+							
+							<li>
+								<a href="product/index.jsp">CLOTHES</a>
+							</li>
+							
+							<li>
+								<a href="product/index.jsp">BAGS</a>
+							</li>
+							
+							
+							<li>
+								<a href="product/index.jsp">SHOES</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.jsp">Features</a>
-							</li>
-
-							<li>
-								<a href="blog.jsp">Blog</a>
-							</li>
-
-							<li>
-								<a href="about.jsp">About</a>
-							</li>
-
-							<li>
-								<a href="contact.jsp">Contact</a>
+								<a href="board/index.jsp">COMMUNITY</a>
 							</li>
 						</ul>
 					</div>	
@@ -173,56 +174,39 @@
 				<li>
 					<div class="right-top-bar flex-w h-full">
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							Help & FAQs
+							로그인
 						</a>
 
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							My Account
+							회원가입
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							USD
-						</a>
 					</div>
 				</li>
 			</ul>
 
 			<ul class="main-menu-m">
-				<li>
-					<a href="index.html">Home</a>
-					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
-				</li>
+							<li>
+								<a href="product/index.jsp">SHOP</a>
+							</li>
 
-				<li>
-					<a href="product.html">Shop</a>
-				</li>
 
-				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
-				</li>
+							<li>
+								<a href="product/index.jsp">BAGS</a>
+							</li>
+							
+							
+							<li>
+								<a href="product/index.jsp">CLOTHES</a>
+							</li>
+							
+							<li>
+								<a href="product/index.jsp">SHOES</a>
+							</li>
 
-				<li>
-					<a href="blog.html">Blog</a>
-				</li>
-
-				<li>
-					<a href="about.html">About</a>
-				</li>
-
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
+							<li>
+								<a href="board/index.jsp">COMMUNITY</a>
+							</li>
 			</ul>
 		</div>
 
