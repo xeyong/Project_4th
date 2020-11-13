@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp"/>
+<jsp:include page="../header.jsp"/>
 
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
