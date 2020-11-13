@@ -1,6 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'main' of https\://github.com/eee269/Project_4th.git
 eclipse.preferences.version=1
-<<<<<<< HEAD
-encoding//WebContent/member.jsp=UTF-8
-=======
+encoding//WebContent/login.jsp=UTF-8
 encoding//WebContent/product-detail.jsp=UTF-8
->>>>>>> branch 'main' of https://github.com/eee269/Project_4th.git

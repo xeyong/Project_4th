@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<title>Product Detail</title>
@@ -36,6 +37,16 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet"href="https://unpkg.com/swiper/css/swiper.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!--===============================================================================================-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+<!--===============================================================================================-->
 </head>
 <body class="animsition">
 	
@@ -51,7 +62,7 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="member.jsp" class="flex-c-m trans-04 p-lr-25">
+						<a href="login.jsp" class="flex-c-m trans-04 p-lr-25">
 							Login
 						</a>
 

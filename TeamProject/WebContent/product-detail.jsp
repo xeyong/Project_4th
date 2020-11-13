@@ -3,6 +3,7 @@
 
 
 <jsp:include page="header.jsp" />
+<jsp:include page="quickMenu.jsp" />
 
 <!-- 리뷰 팝업창  -->
 

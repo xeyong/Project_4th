@@ -1,4 +1,6 @@
 <jsp:include page="header.jsp" />
+<jsp:include page="quickMenu.jsp" />
+
 
 <style>
 .fixed-img-collist {
@@ -157,5 +159,5 @@
 	</div>
 </section>
 
-
 <jsp:include page="footer.jsp" />
+
