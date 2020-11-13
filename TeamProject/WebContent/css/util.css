@@ -48,7 +48,6 @@ button {
 	border: none;
 	background: transparent;
 	cursor: pointer;
-	float: right;
 }
 
 button:focus {outline: none;}
