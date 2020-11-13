@@ -81,10 +81,10 @@
 </div>
 
 <link type="text/css" rel="stylesheet" href="../scss/common.css" />
-<link type="text/css" rel="stylesheet" href="../scss/mp_main.css" />
+<link type="text/css" rel="stylesheet" href="../scss/mp_order.css" />
 <link type="text/css" rel="stylesheet" href="../scss/header.1.css" />
 <link type="text/css" rel="stylesheet" href="../scss/menu.2.css" />
-<!-- Shoping Cart -->
+<!-- 주문상세 시작 -->
 
 
 <div id="contentWrapper">
@@ -136,151 +136,68 @@
 		<!-- #aside -->
 		<hr>
 		<div id="content">
-			<div id="mypage">
+			<div id="myOrder">
+				<div class="tit-page-2">
+					<h2>주문내역</h2>
+					<p class="dsc">
+						<span class="fc-blue">[이름]</span>님께서 주문하신 내역입니다.
+					</p>
+				</div>
 				<div class="page-body">
-					<!-- 회원 정보 -->
-					<div class="info">
-						<div class="user">
-							<div class="user-img"></div>
-							<div class="user-info">
-								<p>
-									이름[<span id="MK_user_id">아이디</span>]님 <a
-										href="/shop/idinfo.html" class="CSSbuttonWhite CSSbuttonMin">EDIT</a>
-								</p>
-								<div class="box">
-									<dl>
-										<dt>전 &nbsp;&nbsp;&nbsp; 화</dt>
-										<dd></dd>
-									</dl>
-									<dl>
-										<dt>이 메 일</dt>
-										<dd>
-											<span id="MK_user_email">recipeb@naver.com</span>
-										</dd>
-									</dl>
-									<dl>
-										<dt>주 &nbsp;&nbsp;&nbsp; 소</dt>
-										<dd></dd>
-									</dl>
-								</div>
-							</div>
-						</div>
-						<dl class="order">
-							<dt class="tot">총 주문금액 :</dt>
-							<dd class="tot">
-								<strong>0</strong>원
-							</dd>
-							<dt>적 립 금</dt>
-							<dd>
-								<a href="/shop/mypage.html?mypage_type=myreserve"><strong>5,000</strong>원</a>
-							</dd>
-							<dt>쿠 &nbsp;&nbsp;&nbsp; 폰</dt>
-							<dd>
-								<a href="/shop/mypage.html?mypage_type=mycoupon"><strong>0</strong>개</a>
-							</dd>
-						</dl>
-					</div>
-					<!-- //회원 정보 -->
-
-					<!-- 회원 그룹 정보 -->
-<!-- 					<div class="grp"> -->
-<!-- 						<p> -->
-<!-- 							이름님은 [BRONZE]회원입니다.<br> -->
-<!-- 						</p> -->
-<!-- 					</div> -->
-					<!-- //회원 그룹 정보 -->
-
-
-					<!-- 최근 주문 정보 -->
-					<div class="hd">
-						<h3>최근 주문 정보</h3>
-						<a class="view fe" href="/shop/mypage.html?mypage_type=myorder">+
-							MORE</a>
-					</div>
-					<div class="tbl">
-						<table summary="주문일자, 상품명, 결제금액, 주문상세">
-							<caption>최근 주문 정보 목록</caption>
+					<!-- 주문 내역 리스트 -->
+					<div class="table-d2-list">
+						<table summary="번호, 주문일자, 상품명, 결제금액, 주문상세, 배송현황">
+							<caption>주문내역</caption>
 							<colgroup>
-								<col width="150">
+								<col width="70">
+								<col width="100">
 								<col width="*">
-								<col width="140">
-								<col width="140">
+								<col width="100">
+								<col width="90">
+								<col width="90">
 							</colgroup>
 							<thead>
 								<tr>
-									<th><div class="tb-center">DATE</div></th>
-									<th><div class="tb-center">PRODUCT</div></th>
-									<th><div class="tb-center">COST</div></th>
-									<th><div class="tb-center">DETAIL</div></th>
+									<th scope="row"><div class="tb-center">번호</div></th>
+									<th scope="row"><div class="tb-center">주문일</div></th>
+									<th scope="row"><div class="tb-center">상품명</div></th>
+									<th scope="row"><div class="tb-center">결제금액</div></th>
+									<th scope="row"><div class="tb-center">주문상세</div></th>
+									<th scope="row"><div class="tb-center">배송현황</div></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><div class="tb-center">2020.11.12</div></td>
-									<td><div class="tb-center"><a
-										href="/shop/shopdetail.html?branduid=3360797&amp;xcode=001&amp;mcode=&amp;scode=&amp;GfDT=bm55W1w%3D"
-										class="tb-bold">로티 크로커 크로스바디</a><br>색상 : BLACK 1개</div></td>
-									<td><div class="tb-center">219,000원</div></td>
-									<td><div class="tb-center">-</div></td>
-								</tr>
-							</tbody>
-<!-- 							<tbody> -->
 <!-- 								<tr> -->
-<!-- 									<td colspan="4"><div class="tb-center">주문 내역이 없습니다.</div></td> -->
+<!-- 									<td colspan="6"><div class="tb-center">주문내역이 없습니다.</div></td> -->
 <!-- 								</tr> -->
-<!-- 							</tbody> -->
-						</table>
-					</div>
-					<!-- //최근 주문 정보 -->
-
-					<!-- 최근 등록 게시글 -->
-					<div class="hd">
-						<h3>최근 등록 게시글</h3>
-						<a class="view fe" href="/shop/mypage.html?mypage_type=myarticle">+
-							MORE</a>
-					</div>
-					<div class="tbl">
-						<table summary="등록일자, 제목, 게시판">
-							<caption>최근 등록 게시물 목록</caption>
-							<colgroup>
-								<col width="150">
-								<col width="*">
-								<col width="200">
-							</colgroup>
-							<thead>
 								<tr>
-									<th><div class="tb-center">DATE</div></th>
-									<th><div class="tb-center">SUBJECT</div></th>
-									<th><div class="tb-center">BOARD</div></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td colspan="3"><div class="tb-center">작성된 게시글이
-											없습니다.</div></td>
+									<td scope="row"><div class="tb-center">20201113</div></td>
+									<td scope="row"><div class="tb-center">2020.11.13</div></td>
+									<td scope="row"><div class="tb-center">상품명</div></td>
+									<td scope="row"><div class="tb-center">결제금액</div></td>
+									<td scope="row"><div class="tb-center">주문상세</div></td>
+									<td scope="row"><div class="tb-center">배송현황</div></td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<!-- //최근 등록 게시글 -->
+					<!-- //주문 내역 리스트 -->
 
-					<!-- 관심 상품 정보 -->
-					<div class="hd">
-						<h3>관심 상품 정보</h3>
-						<a class="view fe" href="/shop/mypage.html?mypage_type=mywishlist">+
-							MORE</a>
-					</div>
-					<div class="lst">
-						<div class="item-wrap">
-							<div class="item-cont"></div>
-						</div>
-					</div>
-					<!-- //관심 상품 정보 -->
+					<!-- 주문 내역 페이징 -->
+					<div class="paging"></div>
+					<!-- //주문 내역 페이징 -->
+
+					<!-- 주문 내역 info -->
+					<ul class="foot-dsc">
+						<li>- 상품명 또는 주문상세의 조회 버튼을 클릭하시면, 주문상세 내역을 확인하실 수 있습니다.</li>
+						<li>- 배송현황의 조회 버튼을 클릭하시면, 해당 주문의 배송 현황을 한눈에 확인하실 수 있습니다.</li>
+					</ul>
+					<!-- //주문 내역 info -->
 
 				</div>
 				<!-- .page-body -->
 			</div>
-			<!-- #mypage -->
+			<!-- #myOrder -->
 		</div>
 		<!-- #content -->
 	</div>
@@ -288,11 +205,7 @@
 </div>
 
 
-
-
-
-
-<!-- Shoping Cart 끝 -->
+<!-- 주문상세 끝 -->
 
 
 
