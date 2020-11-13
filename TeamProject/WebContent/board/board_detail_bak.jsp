@@ -1,4 +1,5 @@
-<jsp:include page="../header.jsp"/>
+<jsp:include page="header.jsp"/>
+<jsp:include page="quickMenu.jsp" />
 
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -445,4 +446,4 @@
 	</section>	
 	
 		
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="footer.jsp"/>

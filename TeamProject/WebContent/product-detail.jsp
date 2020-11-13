@@ -3,27 +3,7 @@
 
 
 <jsp:include page="header.jsp" />
-
-<!-- 별점 스크립트 -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://use.fontawesome.com/5ac93d4ca8.js"></script>
-    <script src="js/bootstrap4-rating-input.js"></script>
-    <style type="text/css">
-      .rat { margin: 150px auto; font-size: 20px; }
-    </style>
-    <script type="text/javascript">
-        $(function () {
-            $('input').on('change', function () {
-//                 alert("Changed: " + $(this).val())
-            });
-        });
-    </script>
-<!-- 끝 -->
+<jsp:include page="quickMenu.jsp" />
 
 <!-- 리뷰 팝업창  -->
 
@@ -416,27 +396,22 @@
 				href="/template_common/shop/modern_simple/power_review_custom.4.css?t=201907151000">
 			<div id="powerReview">
 				<div class="hd-t">
-					<p><strong>별점을 매겨주세요</strong></p>
-					<!-- 별점 -->
-					<div class="rat">
-						<form action="test.jsp" method="post">
-    						<input type="number" name="inputName" id="rating1" class="rating text-warning"  value="0"/>
-						</form>
-						
+					<h2>POWER REVIEW</h2>
+					<div class="pr-btn-list">
+						<a href="/board/power_review.html">전체리뷰</a>
 					</div>
-					<!-- 별점 -->
 				</div>
 				<!-- .hd-t -->
 				<div id="writePowerReview">
 					<div class="PR15N01-write">
 						<form name="prw_form" id="prw_form" action="" method="post"
 							autocomplete="off">
-							<input type="hidden" name="action_type" value=""> 
-							<input type="hidden" name="product_uid" value="3359844">
-							<input type="hidden" name="ordernum" value="">
-							<input type="hidden" name="basketnum" value="">
-							<input type="hidden" name="write_type" value="DETAIL">
-							<input type="hidden" name="score1" value="5">
+							<input type="hidden" name="action_type" value=""> <input
+								type="hidden" name="product_uid" value="3359844"> <input
+								type="hidden" name="ordernum" value=""> <input
+								type="hidden" name="basketnum" value=""> <input
+								type="hidden" name="write_type" value="DETAIL"> <input
+								type="hidden" name="score1" value="5">
 							<div class="pr-txtbox">
 								<textarea name="content">매월 베스트리뷰 선정 상품권 증정!!
 포토+텍스트 리뷰 등록 시 적립금 5,000원
@@ -476,7 +451,17 @@
 									name="file" class="trick file-attach" id="fileupload"><span>사진추가</span></a>
 							</div>
 						</form>
-
+						<div class="star-list">
+							<span class="bull">▼</span> <a href="#none"><em>★★★★★</em><span
+								class="survey">아주만족</span></a>
+							<ul>
+								<li><a href="#none"><em>★★★★★</em><span class="survey">아주만족</span></a></li>
+								<li><a href="#none"><em>★★★★</em><span class="survey">만족</span></a></li>
+								<li><a href="#none"><em>★★★</em><span class="survey">보통</span></a></li>
+								<li><a href="#none"><em>★★</em><span class="survey">미흡</span></a></li>
+								<li><a href="#none"><em>★</em><span class="survey">불만족</span></a></li>
+							</ul>
+						</div>
 						<div class="cvr right">
 							<a class="lnk-review" href="javascript:power_review_submit();"><span>리뷰등록</span></a>
 						</div>
@@ -836,251 +821,6 @@
 				</ul>
 			</div>
 
-         <a name="brandqna_list"></a>
-
-<h1>리뷰 없을 때</h1>
-         <div class="table-slide qna-list">
-            <table summary="번호, 제목, 작성자, 작성일, 조회">
-               <caption>QnA 리스트</caption>
-               <tbody>
-                  <tr class="nbg">
-                     <td colspan="6"><div class="tb-center">등록된 문의가 없습니다.</div></td>
-                  </tr>
-               </tbody>
-            </table>
-            <div class="list-btm">
-               <div class="btm_write">
-                  <a
-                     href="/board/board.html?code=nasign&amp;page=1&amp;type=i&amp;branduid=3359844&amp;returnurl=xcode=&amp;mcode=&amp;scode=">WRITE</a>
-               </div>
-
-            </div>
-         </div>
-         
-         <h1>리뷰 있을 때</h1>
-         
-         <div class="table-slide qna-list">
-                            <table summary="번호, 제목, 작성자, 작성일, 조회">
-                                <caption>QnA 리스트</caption>
-                                                                <colgroup>
-                                    <col width="80">
-                                    <col width="30">
-                                    <col width="*">
-                                    <col width="100">
-                                    <col width="100">
-                                    <col width="80">
-                                </colgroup>
-                                <thead style="display: table-header-group; vertical-align: middle; border-color: inherit;">
-                                    <tr>
-                                        <th scope="col"><div class="tb-center">NO</div></th>
-                                        <th scope="col"></th>
-                                        <th scope="col"><div class="tb-center">SUBJECT</div></th>
-                                        <th scope="col"><div class="tb-center">NAME</div></th>
-                                        <th scope="col"><div class="tb-center">DATE</div></th>
-                                        <th scope="col"><div class="tb-center">HIT</div></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">28</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '1', 'N', '', 'nasign', '996968', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">지향</div></td>
-                                        <td><div class="tb-center">2020.11.05</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits1">3</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block1">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">27</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '2', 'Y', '', 'nasign', '997035', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">김슬기</div></td>
-                                        <td><div class="tb-center">2020.10.24</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits2">7</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block2">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">26</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '3', 'N', '', 'nasign', '997092', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">김가연</div></td>
-                                        <td><div class="tb-center">2020.10.07</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits3">5</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block3">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">25</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '4', 'N', '', 'nasign', '997096', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">김소영</div></td>
-                                        <td><div class="tb-center">2020.10.07</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits4">2</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block4">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">24</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '5', 'Y', '', 'nasign', '997118', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">배지혜</div></td>
-                                        <td><div class="tb-center">2020.09.26</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits5">4</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block5">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">23</span></div></td>
-                                        <td><div class="tb-center"><img src="/board/images/neo_jpg.gif"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '6', 'Y', '', 'nasign', '997137', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">김애림</div></td>
-                                        <td><div class="tb-center">2020.09.21</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits6">9</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block6">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">22</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '7', 'Y', '', 'nasign', '997143', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">양자현</div></td>
-                                        <td><div class="tb-center">2020.09.20</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits7">5</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block7">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">21</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '8', 'Y', '', 'nasign', '997224', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">하서정</div></td>
-                                        <td><div class="tb-center">2020.08.25</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits8">5</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block8">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">20</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '9', 'N', '', 'nasign', '997237', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">미미</div></td>
-                                        <td><div class="tb-center">2020.08.23</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits9">7</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block9">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                        <tr class="nbg">
-                                        <td><div class="tb-center"><span class="reviewnum">19</span></div></td>
-                                        <td><div class="tb-center"></div></td>
-                                        <td><div class="tb-left reply_depth0">
-                                                                                        <span>
-                                                                                                <img src="/board/images/neo_lock.gif">                                                <a href="javascript: show_hide('qna_board', '10', 'Y', '', 'nasign', '997241', '00000', 'Y', '1', '3360293');">체인</a>
-                                            </span>
-                                            <span style="font-size: 8pt;">(1)</span>                                                                                                                                                                                </div></td>
-                                        <td><div class="tb-center">박명심</div></td>
-                                        <td><div class="tb-center">2020.08.21</div></td>
-                                        <td><div class="tb-center"><span id="qna_board_showhits10">4</span></div></td>
-                                    </tr>
-                                    <tr class="MS_qna_content_box cnt" id="qna_board_block10">
-                                        <td colspan="6">
-                                            <div class="tb-left">
-                                                <div class="qna_board_content"></div>                                            </div>
-                                        </td>
-                                    </tr>
-                                                                                                    </tbody>
-                            </table>
-                            <div class="list-btm">
-                                                                                                <div class="paging-wrap">
-                                    <div class="paging">
-                                                                                
-                                                                                                                            <a href="/shop/shopdetail.html?branduid=3360293&amp;xcode=006&amp;mcode=001&amp;qnapage=1#brandqna_list" class="now">1</a>
-                                                                                                                                                                        <a href="/shop/shopdetail.html?branduid=3360293&amp;xcode=006&amp;mcode=001&amp;qnapage=2#brandqna_list">2</a>
-                                                                                                                                                                        <a href="/shop/shopdetail.html?branduid=3360293&amp;xcode=006&amp;mcode=001&amp;qnapage=3#brandqna_list">3</a>
-                                                                                    
-                                                                                                                        <a href="/shop/shopdetail.html?branduid=3360293&amp;xcode=006&amp;mcode=001&amp;qnapage=3#brandqna_list" class="last">&gt;&gt;</a>
-                                                                            </div>
-                                </div>
-                                                                                                                                <div class="btm_write">
-                                    <a href="/board/board.html?code=nasign&amp;page=1&amp;type=i&amp;branduid=3360293&amp;returnurl=xcode=&amp;mcode=&amp;scode=">WRITE</a> 
-                                </div>
-                                 
-                            </div>
-                        </div>
-         
 
 			<a name="brandqna_list"></a>
 			<div class="tit-detail">
@@ -1270,34 +1010,6 @@
 				class="stext-107 cl6 p-lr-25"> Categories: Jacket, Men </span>
 		</div>
 </section>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script>
-try {
-  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
-    return true;
-  }).catch(function(e) {
-    var carbonScript = document.createElement("script");
-    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
-    carbonScript.id = "_carbonads_js";
-    document.getElementById("carbon-block").appendChild(carbonScript);
-  });
-} catch (error) {
-  console.log(error);
-}
-</script>
 
 
 <jsp:include page="footer.jsp" />
