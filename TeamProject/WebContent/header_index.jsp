@@ -67,6 +67,9 @@
 						<a href="cart/mypage.jsp" class="flex-c-m trans-04 p-lr-15">
 							마이페이지
 						</a>
+						<a href="cart/myorder.jsp" class="flex-c-m trans-04 p-lr-15">
+							주문정보
+						</a>
 					</div>
 				</div>
 			</div>
@@ -96,15 +99,31 @@
 							
 							<li>
 								<a href="product/index.jsp">CLOTHES</a>
+								<ul class="sub-menu">						
+									<li><a href="../product/index.jsp">TOP</a></li>
+									<li><a href="../product/index.jsp">BOTTOM</a></li>
+									<li><a href="../product/index.jsp">DRESS</a></li>
+									<li><a href="../product/index.jsp">OUTER</a></li>
+								</ul>
 							</li>
 							
 							<li>
 								<a href="product/index.jsp">BAGS</a>
+								<ul class="sub-menu">
+									<li><a href="../product/bags.jsp">CROSS</a></li>
+									<li><a href="../product/bags.jsp">TOTE</a></li>
+									<li><a href="../product/bags.jsp">SHOPPER</a></li>
+								</ul>
 							</li>
 							
 							
 							<li>
 								<a href="product/index.jsp">SHOES</a>
+								<ul class="sub-menu">
+									<li><a href="../product/shoes.jsp">SNEAKERS</a></li>
+									<li><a href="../product/shoes.jsp">BOOTS</a></li>
+									<li><a href="../product/shoes.jsp">LOAFERS</a></li>
+								</ul>
 							</li>
 
 							<li class="label1" data-label1="hot">
