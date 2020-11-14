@@ -1,6 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../header.jsp" />
+<!-- 별점 스크립트 -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://use.fontawesome.com/5ac93d4ca8.js"></script>
+<script src="../js/bootstrap4-rating-input.js"></script>
+<style type="text/css">
+	.rat { margin: 150px auto; font-size: 20px; }
+	.mini_rat{margin: 150px auto; font-size: 15px; }
+</style>
+<!--     <script type="text/javascript"> -->
+<!-- //         $(function () { -->
+<!-- //             $('input').on('change', function () { -->
+<!-- // //                 alert("Changed: " + $(this).val()) -->
+<!-- //             }); -->
+<!-- //         }); -->
+<!--     </script> -->
+<!-- 끝 -->
+
+<!-- TAB기능 스타일 -->
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+	#powerReview .tabs {
+		width: 100%;
+		margin-bottom: 29px;
+		border-bottom: 1px solid #d9d9d9;
+	}
+	#powerReview .tabs .tab {
+		display: inline-block;
+		margin-bottom: -1px;
+		padding: 20px 15px 10px;
+		cursor: pointer;
+		letter-spacing: 0;
+		border-bottom: 1px solid #d9d9d9;
+		/*-moz-user-select: -moz-none;*/
+		-ms-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		transition: all 0.1s ease-in-out;
+	}
+	#powerReview .tabs .tab a {
+		font-size: 11px;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: #d9d9d9;
+		transition: all 0.1s ease-in-out;
+	}
+	#powerReview .tabs .tab.active a, body .container .tabs .tab:hover a {
+		color: #263238;
+	}
+	#powerReview .tabs .tab.active {
+		border-bottom: 1px solid #263238;
+	}
+	#powerReview .content .signup-cont {
+		display: none;
+	}
+	/* @keyframes slideIn { */
+	/*   0% { */
+	/*     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); */
+	/*     opacity: 0; */
+	/*     margin-left: -320px; */
+	/*   } */
+	/*   100% { */
+	/*     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); */
+	/*     opacity: 1; */
+	/*     margin-left: 0px; */
+	/*   } */
+	/* } */
+	/* @-webkit-keyframes slideIn { */
+	/*   0% { */
+	/*     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); */
+	/*     opacity: 0; */
+	/*     margin-left: -320px; */
+	/*   } */
+	/*   100% { */
+	/*     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); */
+	/*     opacity: 1; */
+	/*     margin-left: 0px; */
+	/*   } */
+	/*}*/
+</style>
+
+<!-- 끝 -->
 
 <!-- Cart -->
 <jsp:include page="../sub_cart.jsp" />
@@ -11,8 +97,351 @@
 <link type="text/css" rel="stylesheet" href="../scss/menu.1.css" />
 <link type="text/css" rel="stylesheet"
 	href="../scss/power_review_custom.4.css" />
-	
-	
+
+
+<script type="text/javascript">
+	// $(function() {
+	// 	selectOption($(".rs1-select2").val, $(".rs2-select2").val);
+	// });
+	//
+	// function selectOption(opt1, opt2) {
+	//
+	//
+	// }
+	//
+	// $('#select2-opt1-container').change(function() {
+	// 	const opt1 = $('#select2-opt1-container').val();
+	// 	const opt2 = $('#select2-opt2-container').val();
+	//
+	// 	alert(opt1);
+	//
+	// 	if(opt1 == '' || opt2 == '') {
+	// 		jQuery('#select-opt').hide();
+	// 	} else {
+	// 		jQuery('#select-opt').show();
+	// 		// alert(opt1 + ", " + opt2);
+	// 		alert(opt1 + ", " + opt2);
+	// 		// $('#select-opt').css('visibility','visibility');
+	// 		// $('.opt_1_2 span').append(opt1 + ", " + opt2);
+	//
+	// 	}
+	// });
+
+
+
+	$(document).ready(function() {
+		$('#container li select').change(function() {
+			if(!$(this).hasClass('nomore-option')) {
+				var val = $(this).val();
+				var str = $(this).attr('id').split('-');
+				var id = str[0] + '-' + str[1].substr(0, 1);
+
+				var val = $(this).val();
+				var idx = $('select[id^=' + id + ']').index($(this));
+
+				if(val == '') {
+					var $el = $('select[id^=' + id + ']:gt(' + idx + ')');
+
+					$el.val('');
+					$el.attr('disabled', true);
+				} else {
+					var $el = $('select[id^=' + id + ']:gt(' + idx + ')');
+
+					$el.val('');
+					$el.attr('disabled', true);
+
+					$el.each(function() {
+						if($(this).is(':disabled')) {
+							$(this).attr('disabled', false);
+							return false;
+						}
+					});
+				}
+			}
+		});
+
+		$('#container li select.nomore-option').change(function() {
+			if($(this).hasClass('nomore-option')) {
+				var str = $(this).attr('id').split("-");
+				var id = str[0] + '-' + str[1].substr(0, 1);
+				optionDisplay(id);
+			}
+		});
+
+		// 상품개수증가
+		$('span.add-item').live('click', function() {
+			var $cntinput = $(this).closest('li').find('input');
+			var count = parseInt($cntinput.val());
+			count++;
+
+			$cntinput.val(count);
+
+			calculatePrice();
+		});
+
+		// 상품개수감소
+		$('span.subtract-item').live('click', function() {
+			var $cntinput = $(this).closest('li').find('input');
+			var count = parseInt($cntinput.val());
+			count--;
+
+			if(count < 1) {
+				alert('상품개수는 1이상 입력해 주십시오.');
+				count = 1;
+			}
+
+			$cntinput.val(count);
+
+			calculatePrice();
+		});
+
+		// 선택옵션삭제
+		$('span.option-delete').live('click', function() {
+			$(this).closest('li').remove();
+
+			var resultcount = $('ul#selected-result li').size();
+			if(resultcount < 1) {
+				$('ul#selected-result').css('display', 'none');
+				$('#total-price').css('display', 'none');
+			}
+
+			calculatePrice();
+		});
+	});
+
+	function optionDisplay(id)
+	{
+		var option = "";
+		var sep = "";
+		var optionval = "";
+		var optionprc = "";
+		var optionprice = "";
+		var optionid = "";
+		var optionadd = false;
+
+		if($('ul#selected-result').is(':hidden')) {
+			$('ul#selected-result').css('display', 'block');
+			$('#total-price').css('display', 'block');
+		}
+
+		$('#container li select[id^=' + id + ']').each(function() {
+			var str = $(this).val().split('||');
+			optionval = str[0];
+			if(str[1] == undefined) {
+				optionprc = "0";
+			} else {
+				optionprc = str[1];
+			}
+			optionid = $(this).attr('id');
+
+			if(optionval == '') {
+				optionadd = true;
+				return false;
+			}
+
+			option += sep + '<span class="selected-' + optionid + '">' + optionval + '</span>';
+			optionprice += '<span class="price-value">' + optionprc + '</span>';
+
+			sep = "/";
+		});
+
+		// 선택된 옵션체크
+		$('ul#selected-result li span.selected-value').each(function() {
+			var oldoption = $(this).html();
+
+			if(oldoption == option) {
+				alert('이미 선택된 옵션입니다.');
+				optionadd = true;
+				return false;
+			}
+		});
+
+		if(!optionadd) {
+			var resultcount = $('ul#selected-result li').size();
+			var optioncontent = '<li><span class="selected-value">' + option + '</span><span class="option-price">' + optionprice + '</span><span class="item-count"> <input type="text" name="itemcount[]" value="1" /></span><span class="add-item"> + </span><span class="subtract-item"> - </span><span class="option-delete"> 삭제</span></li>';
+
+			if(resultcount > 0) {
+				$('ul#selected-result li:last').after(optioncontent);
+			} else {
+				$('ul#selected-result').html(optioncontent);
+			}
+
+			calculatePrice();
+		}
+	}
+
+	function calculatePrice()
+	{
+		var totalprice = 0;
+		var itemprice = parseInt($('span#item-price').text().replace(/[^0-9]/g, ''));
+
+		$('ul#selected-result li').each(function() {
+			var $prcelmt = $(this).find('.price-value');
+			var optprc = 0;
+			var itcnt = parseInt($(this).find('input').val());
+
+			$prcelmt.each(function() {
+				var prc = parseInt($(this).text());
+				optprc += prc;
+			});
+
+			totalprice += (itemprice + optprc) * itcnt;
+		});
+
+		$('#total-price span').text(number_format(totalprice) + '원');
+	}
+
+	function number_format(input){
+		var input = String(input);
+		var reg = /(-?d+)(d{3})($|.d+)/;
+		if(reg.test(input)){
+			return input.replace(reg, function(str, p1,p2,p3){
+						return number_format(p1) + "," + p2 + "" + p3;
+					}
+			);
+		}else{
+			return input;
+		}
+	}
+
+
+
+
+	$(function() {
+		$('#prw_form').submit(function() {
+			// var id = this.id.value;
+			// var email = this.email.value;
+			// var pass = this.pass.value;
+			// var username = this.username.value;
+			// var goods_num = this.goods_num.value;
+			// var goods_color = this.goods_color.value;
+			// var goods_size = this.goods_size.value;
+			var rating = $('#rating1').val();
+			var content=$('#prw_content').val();
+			var file=$('#prw_file').val();
+
+			<%-- id세션값 없으면 로그인으로 이동해야함 (textarea, submit 클릭시) / yj --%>
+
+			if(rating == 0) {
+				alert("별점을 입력하세요");
+				$('#rating1').focus();
+				return false;
+			}
+			$.ajax('../none.jsp', {
+				data: {
+					rating: $('#rating1').val(),
+					content: $('#prw_content').val(),
+					file: $('#prw_file').val()
+				},
+				success:function (rdata) {
+					$('div').append(rdata);
+				}
+			});
+		});
+	});
+</script>
+<!-- 적용되는 js -->
+
+<%--<script type="text/javascript">--%>
+<%--	var goods_no = "1687134";--%>
+<%--	var goods_sub = "0";--%>
+<%--	var similar_no = "";--%>
+<%--	var product_goods_nm = "%EC%9D%B8%EC%A1%B0%ED%8D%BC%20%EB%9D%BC%EC%9A%B4%EB%93%9C%EB%84%A5%20%EC%9E%90%EC%BC%93%20MIWJLB102B";--%>
+<%--	var product_brand = "%EB%AF%B8%EC%8F%98";--%>
+<%--	var product_brand_eng = "MIXXO";--%>
+<%--	var max_month = "7";--%>
+<%--	var similar_goods_update_yn = "N";--%>
+<%--	var image_search_api_type = "syte";--%>
+<%--	var item_cat_nm2 = "숏 패딩/숏 헤비 아우터";--%>
+<%--	var product_main_img = "//image.msscdn.net/images/goods_img/20201112/1687134/1687134_1_500.jpg";--%>
+<%--	var first_option_cnt = "2";--%>
+<%--	var option_cnt = "2";--%>
+<%--	var sale_stat_cl = "40";--%>
+<%--	var good_qty = "10";--%>
+<%--	var restock_yn = "Y";--%>
+<%--	var fit_count = 0;--%>
+<%--	var orders_graph_yn = 'Y';--%>
+<%--	var acc_buy_yn = 'Y';--%>
+<%--	var offline_com_id = 'C';--%>
+<%--	var es_pageview_yn = 'Y';--%>
+<%--	var item_cat_cd = '002012';--%>
+<%--	var used_yn = 'N';--%>
+<%--	$(function() {--%>
+<%--		var log_arr = {"goods_no":"1687134","goods_sub":"0","age":"","device":"pc","deviceKind":"","gender":"","location":"","parentsGoodsNo":"","previousLocation":"","referer":"https:\/\/display.musinsa.com\/","userId":"","userIp":"58.126.189.136","vid":"5faf816b001e9"};--%>
+
+<%--		logging_product_view(log_arr);--%>
+
+<%--		// 객체 존재여부 확인--%>
+<%--		var selectbox_chk = $("#option1").length;--%>
+
+<%--		// 멀티옵션 중 첫번째 옵션이 1개 인경우 해당 옵션이 select 되어 있고 두번째 옵션이 노출되도록 처리--%>
+<%--		if(option_cnt == "2" && first_option_cnt == "1" && selectbox_chk > 0){--%>
+<%--			prepareOrder.viewSubOption(goods_no, goods_sub, document.getElementById("option1").value, '2');--%>
+<%--		}--%>
+
+<%--		$("img.lazyload").lazyload({});--%>
+
+<%--	});--%>
+<%--</script>--%>
+<!-- 적용되는 js 끝 -->
+
+
+<!-- Channel Plugin Scripts -->
+<!--
+<script>
+function parsePureNumber(number) {
+return parseFloat(number.replace(/[^0-9\.]+/g, '')) || 0
+}
+var settings = {
+"pluginKey": "f62339a7-257c-42a3-b825-ee4798e49fd5",
+};
+(function() {
+var w = window;
+if (w.ChannelIO) {
+return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+}
+var d = window.document;
+var ch = function() {
+ch.c(arguments);
+};
+ch.q = [];
+ch.c = function(args) {
+ch.q.push(args);
+};
+w.ChannelIO = ch;
+function l() {
+if (w.ChannelIOInitialized) {
+return;
+}
+w.ChannelIOInitialized = true;
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.async = true;
+s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+s.charset = 'UTF-8';
+var x = document.getElementsByTagName('script')[0];
+x.parentNode.insertBefore(s, x);
+}
+if (document.readyState === 'complete') {
+l();
+} else if (window.attachEvent) {
+window.attachEvent('onload', l);
+} else {
+window.addEventListener('DOMContentLoaded', l, false);
+window.addEventListener('load', l, false);
+}
+})();
+if (settings && settings.memberId && settings.memberId.indexOf('!--/user_id/--') >= 0) {
+console.error('You do not using makeshop. please visit https://developers.channel.io/docs/guide-for-famous-builders and find correct one');
+} else {
+ChannelIO('boot', settings);
+}
+</script>
+
+-->
+<!-- End Channel Plugin -->
+
+
 
 <!-- breadcrumb -->
 <div class="container">
@@ -85,72 +514,146 @@
 					<h4 class="mtext-105 cl2 js-name-detail p-b-14">Lightweight
 						Jacket</h4>
 
-					<span class="mtext-106 cl2"> $58.79 </span>
+					<span class="mtext-106 cl2"> 80,000원 </span>
 
 					<p class="stext-102 cl3 p-t-23">Nulla eget sem vitae eros
 						pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
 						feugiat.</p>
 
-					<!--  -->
-					<div class="p-t-33">
-						<div class="flex-w flex-r-m p-b-10">
-							<div class="size-203 flex-c-m respon6">Size</div>
+					<!-- 상품 옵션 -->
+<%--					<div class="p-t-33">--%>
+<%--						<div class="flex-w flex-r-m p-b-10">--%>
+<%--							<div class="size-203 flex-c-m respon6">Size</div>--%>
 
-							<div class="size-204 respon6-next">
-								<div class="rs1-select2 bor8 bg0">
-									<select class="js-select2" name="time">
-										<option>Choose an option</option>
-										<option>Size S</option>
-										<option>Size M</option>
-										<option>Size L</option>
-										<option>Size XL</option>
-									</select>
-									<div class="dropDownSelect2"></div>
-								</div>
-							</div>
-						</div>
+<%--							<div class="size-204 respon6-next">--%>
+<%--								<div class="rs1-select2 bor8 bg0">--%>
+<%--									<select class="js-select2" id="opt1" name="time">--%>
+<%--										<option value="" selected>Choose an option</option>--%>
+<%--										<option value="s">Size S</option>--%>
+<%--										<option value="m">Size M</option>--%>
+<%--										<option value="l">Size L</option>--%>
+<%--										<option value="xl">Size XL</option>--%>
+<%--									</select>--%>
+<%--									<div class="dropDownSelect2"></div>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--						</div>--%>
 
-						<div class="flex-w flex-r-m p-b-10">
-							<div class="size-203 flex-c-m respon6">Color</div>
+<%--						<div class="flex-w flex-r-m p-b-10">--%>
+<%--							<div class="size-203 flex-c-m respon6">Color</div>--%>
 
-							<div class="size-204 respon6-next">
-								<div class="rs1-select2 bor8 bg0">
-									<select class="js-select2" name="time">
-										<option>Choose an option</option>
-										<option>Red</option>
-										<option>Blue</option>
-										<option>White</option>
-										<option>Grey</option>
-									</select>
-									<div class="dropDownSelect2"></div>
-								</div>
-							</div>
-						</div>
+<%--							<div class="size-204 respon6-next">--%>
+<%--								<div class="rs1-select2 bor8 bg0">--%>
+<%--									<select class="js-select2" id="opt2" name="time">--%>
+<%--										<option value="" selected>Choose an option</option>--%>
+<%--										<option value="red">Red</option>--%>
+<%--										<option value="blue">Blue</option>--%>
+<%--										<option value="white">White</option>--%>
+<%--										<option value="gray">Gray</option>--%>
+<%--									</select>--%>
+<%--									<div class="dropDownSelect2"></div>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--						</div>--%>
 
-						<div class="flex-w flex-r-m p-b-10">
-							<div class="size-204 flex-w flex-m respon6-next">
-								<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-									<div
-										class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-										<i class="fs-16 zmdi zmdi-minus"></i>
-									</div>
 
-									<input class="mtext-104 cl3 txt-center num-product"
-										type="number" name="num-product" value="1">
+<%--						<div id="select-opt" class="flex-w flex-r-m p-b-10"--%>
+<%--							 style="text-align: right; width: 570px; padding: 10px 30px; display: none">--%>
 
-									<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-										<i class="fs-16 zmdi zmdi-plus"></i>
-									</div>
-								</div>
+<%--							<div class="size-204 flex-w flex-m respon6-next">--%>
+<%--								<div class="opt_1_2" style="padding-right: 50px">--%>
+<%--									<span>goods_options</span>--%>
+<%--								</div>--%>
 
-								<button
-									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-									Add to cart</button>
-							</div>
-						</div>
+<%--								<div class="wrap-num-product flex-w m-r-20 m-tb-10">--%>
+<%--									<div--%>
+<%--											class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">--%>
+<%--										<i class="fs-16 zmdi zmdi-minus"></i>--%>
+<%--									</div>--%>
+
+<%--									<input class="mtext-104 cl3 txt-center num-product"--%>
+<%--										   type="number" name="num-product" value="1">--%>
+
+<%--									<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">--%>
+<%--										<i class="fs-16 zmdi zmdi-plus"></i>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+
+<%--								<a href="">--%>
+<%--									<img src="https://img.icons8.com/fluent-systems-regular/24/000000/cancel.png"/></a>--%>
+<%--							</div>--%>
+
+
+
+<%--							<div class="size-204 flex-w flex-m respon6-next">--%>
+<%--								<div class="price" style="padding-right: 50px">--%>
+<%--									<span id="amt_total_area2">모두 합한 가격 + 원</span>--%>
+
+<%--									<input type="hidden" name="buy_list_option_info" value="(19)Black^095">--%>
+<%--									<input type="hidden" name="buy_list_goods_price" value="99900">--%>
+<%--									<input type="hidden" name="buy_list_qty" value="1">--%>
+<%--								</div>--%>
+<%--								<br>--%>
+<%--								<button--%>
+<%--										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">--%>
+<%--									Add to cart</button>--%>
+<%--							</div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+
+
+					<div id="container">
+						<span>상품가격 : </span><span id="item-price">20,000원</span>
+						<ul>
+							<li>
+								<select id="option-1" class="more-option" name="option-1">
+									<option value="">색상선택</option>
+									<option value="blue">blue</option>
+									<option value="black">black</option>
+									<option value="pink">pink</option>
+								</select>
+							</li>
+							<li>
+								<select id="option-11" name="option-11" disabled="disabled">
+									<option value="">가로길이선택</option>
+									<option value="200cm">200cm</option>
+									<option value="300cm||+500">300cm(+500원)</option>
+									<option value="400cm||+1000">400cm(+1,000원)</option>
+								</select>
+							</li>
+							<li>
+								<select id="option-12" name="option-12" disabled="disabled">
+									<option value="">세로길이선택</option>
+									<option value="200cm">200cm</option>
+									<option value="300cm||+500">300cm(+500원)</option>
+									<option value="400cm||+1000">400cm(+1,000원)</option>
+								</select>
+							</li>
+							<li>
+								<select id="option-13" class="nomore-option" name="option-13" disabled="disabled">
+									<option value="">높이선택</option>
+									<option value="200cm">200cm</option>
+									<option value="300cm||+500">300cm(+500원)</option>
+									<option value="400cm||+1000">400cm(+1,000원)</option>
+								</select>
+							</li>
+						</ul>
+						<ul id="selected-result">
+						</ul>
+						<div id="total-price">총 금액 : <span></span></div>
 					</div>
 
-					<!--  -->
+
+
+
+
+
+
+
+
+
+
+					<%-- 좋아요 + 각종 공유 / yj --%>
 					<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 						<div class="flex-m bor9 p-r-10 m-r-11">
 							<a href="#"
@@ -282,77 +785,41 @@
 			<div id="powerReview">
 				<div class="hd-t">
 					<h2>POWER REVIEW</h2>
-					<div class="pr-btn-list">
-						<a href="/board/power_review.html">전체리뷰</a>
-					</div>
 				</div>
-				<!-- .hd-t -->
 				<div id="writePowerReview">
 					<div class="PR15N01-write">
-						<form name="prw_form" id="prw_form" action="" method="post"
-							autocomplete="off">
-							<input type="hidden" name="action_type" value=""> <input
-								type="hidden" name="product_uid" value="3360799"> <input
-								type="hidden" name="ordernum" value=""> <input
-								type="hidden" name="basketnum" value=""> <input
-								type="hidden" name="write_type" value="DETAIL"> <input
-								type="hidden" name="score1" value="5">
-							<div class="pr-txtbox">
-								<textarea name="content">매월 베스트리뷰 선정 상품권 증정!!
-포토+텍스트 리뷰 등록 시 적립금 5,000원
-텍스트 리뷰 등록 시 적립금 2,000원</textarea>
-								<textarea style="display: none" name="board_writeword">매월 베스트리뷰 선정 상품권 증정!!
-포토+텍스트 리뷰 등록 시 적립금 5,000원
-텍스트 리뷰 등록 시 적립금 2,000원</textarea>
-								<div class="thumb-wrap"></div>
+						<form name="prw_form" id="prw_form" action="../none.jsp" method="post"
+							  autocomplete="off">
+
+							<p><strong>별점을 매겨주세요</strong></p>
+							<!-- 별점 -->
+							<div class="rat">
+								<input type="number" name="rating" id="rating1" class="rating text-warning" value="0"/>
 							</div>
+							<!-- 별점 -->
+
+							<%-- 여기 input 들은 ${'변수'} 이런 형식으로 세션 아이디의 정보 받아오도록하기 / yj --%>
+
+							<input type="hidden" name="goods_num" value="">
+							<input type="hidden" name="username" value="">
+							<input type="hidden" name="goods_color" value="">
+							<input type="hidden" name="goods_size" value="">
+							<input type="hidden" name="id" value="">
+							<input type="hidden" name="email" value="">
+							<input type="hidden" name="pass" value="">
+
+
+							<textarea name="content" id="prw_content" placeholder="리뷰 내용을 입력해주세요" required></textarea>
+							<div class="thumb-wrap"></div>
+							<input type="file" name="file" class="trick file-attach" id="prw_file">
+							<input type="submit" value="리뷰 등록" class="lnk-review"
+								   style="text-align: right; padding: 20px 50px; cursor:pointer;">
 						</form>
 					</div>
-					<!-- .PR15N01-write -->
-					<div class="PR15N01-recmd ">
-						<div id="files" class="files"></div>
-						<form name="prw_file_form" id="prw_file_form"
-							action="http://board.makeshop.co.kr/upload.html" method="post"
-							enctype="multipart/form-data">
-							<input type="hidden" name="type" value="upload"> <input
-								type="hidden" name="servername" value="special328"> <input
-								type="hidden" name="url" value="oryany.co.kr"> <input
-								type="hidden" name="code" value="nasign_board8"> <input
-								type="hidden" name="size" value="512000"> <input
-								type="hidden" name="org" value="nasign"> <input
-								type="hidden" name="maxsize" value=""> <input
-								type="hidden" name="Btype" value=""> <input
-								type="hidden" name="img_resize" value="N"> <input
-								type="hidden" name="img_maxwidth" value=""> <input
-								type="hidden" name="gallery_type"> <input type="hidden"
-								name="form_name" value="power_review"> <input
-								type="hidden" name="mini_bgcolor" value=""> <input
-								type="hidden" name="mini_size" value="100"> <input
-								type="hidden" name="mini_space" value=""> <input
-								type="hidden" name="fileobj_name" value="file_name1"> <input
-								type="hidden" name="device_type" value="PC">
-							<div class="cvr">
-								<a class="pr-lnk-photo" href="#none"><input type="file"
-									name="file" class="trick file-attach" id="fileupload"><span>사진추가</span></a>
-							</div>
-						</form>
-						<div class="star-list">
-							<span class="bull">▼</span> <a href="#none"><em>★★★★★</em><span
-								class="survey">아주만족</span></a>
-							<ul>
-								<li><a href="#none"><em>★★★★★</em><span class="survey">아주만족</span></a></li>
-								<li><a href="#none"><em>★★★★</em><span class="survey">만족</span></a></li>
-								<li><a href="#none"><em>★★★</em><span class="survey">보통</span></a></li>
-								<li><a href="#none"><em>★★</em><span class="survey">미흡</span></a></li>
-								<li><a href="#none"><em>★</em><span class="survey">불만족</span></a></li>
-							</ul>
-						</div>
-						<div class="cvr right">
-							<a class="lnk-review" href="javascript:power_review_submit();"><span>리뷰등록</span></a>
-						</div>
-					</div>
-					<!-- .PR15N01-recmd -->
 				</div>
+				<br><br><br>
+
+
 				<div class="PR15N01-info">
 					<dl class="score">
 						<dt>5.0</dt>
@@ -417,184 +884,129 @@
 						<strong>100%</strong>의 구매자들이 이 상품을 좋아합니다. (56명 중 56명)
 					</p>
 				</div>
-				<!-- .PRSOIM01-info -->
 
-				<div class="PR15N01-hd">
-					<h2>
-						프리미엄 상품평<span>(56개)</span>
-					</h2>
-					<ul class="sort">
-						<li class="now" val="date"><a
-							href="javascript:power_review_sort('date');">최신 순</a></li>
-						<li val="score"><a
-							href="javascript:power_review_sort('score');">평점 순</a></li>
-						<li "="" val="good"><a
-							href="javascript:power_review_sort('good');">추천 순</a></li>
-					</ul>
-				</div>
-				<!-- .PR15N01-hd -->
-				<div class="pr-division-tab">
+
+				<div class="tabs">
 					<ul>
-						<li class="now" val="photo"><a
-							href="javascript:power_review_list_photo('N');">포토리뷰(28)</a></li>
-						<li val="basic"><a
-							href="javascript:power_review_list_normal('N');">일반리뷰(28)</a></li>
+						<li class="tab signin active"><a href="#signin">포토리뷰()</a></li><!-- 포토리뷰(db연동값삽입) -->
+						<li class="tab signup"><a href="#signup">일반리뷰()</a></li><!-- 일반리뷰(db연동값삽입) -->
 					</ul>
 				</div>
-				
-				
-				
-				
-				
-				<div id="listPowerReview" class="MS_power_review_list">
 
-					<ul class="PR15N01-review-wrap">
-						
-						
-						
-						
-						<!-- 후기 작성 시작 -->
-						<li id="power_review_block995481" class="power-review-list-box">
-							<dl class="desc">
-								<dt class="first">작성자</dt>
-								<dd>sehy*****</dd>
-								<dt>작성일</dt>
-								<dd>2020-11-10</dd>
-								<dt>조회수</dt>
-								<dd>
-									<span id="power_review_showhits">57</span>
-								</dd>
-							</dl>
-												
-							<div class="hd-box">
-								<div class="star-icon">
-									<span class="star"><em>★★★★★</em></span> <span class="survey">아주만족</span>
-								</div>
-							</div>
-							<div class="pr-options" style="display: none;">
-								<dl>
-									<dt class="emp">구매한 옵션</dt>
-									<dd class="emp">색상 : BLACK</dd>
+				<%-- 리뷰들 형식 반복해서 데이터 넣기 --%>
+				<div class="content">
+
+					<%-- 포토리뷰--%>
+					<div class="signin-cont cont">
+						<ul class="PR15N01-review-wrap">
+							<li id="power_review_block995509" class="power-review-list-box">
+								<dl class="desc">
+									<dt class="first">작성자</dt>
+									<dd>nmoo*****</dd>
+									<dt>작성일</dt>
+									<dd>2020-11-07</dd>
+									<dt>조회수</dt>
+									<dd>
+										<span id="power_review_showhits">7</span>
+									</dd>
 								</dl>
-							</div>
-							<div class="content">
-								<p class="content_p">
-									<a href="" class="more-options">사진 그대로 실물 똑같이 예쁩니다:)<br> 넘 만족하고요
-										어디에든 잘 어울리고 수납공간 생각보다 꽤 들어갑니다 오야니 최고
-									</a><a class="pr-close" href="javascript:power_review_more_close('995481');"> ...
+								<div class="hd-box">
+									<div class="star-icon">
+							<span class="mini_rat">
+							<input type="number" class="rating text-default" value="5" data-readonly/><!-- value에 각각 리뷰의별점값넣어야됨 -->
+							</span>
+										<span class="survey">아주만족</span>
+									</div>
+								</div>
+								<div class="pr-options" style="display: none;">
+									<dl>
+										<dt class="emp">구매한 옵션</dt>
+										<dd class="emp">컬러 : BLACK, 사이즈 : S</dd>
+									</dl>
+								</div>
+								<div class="content">
+									<p class="content_p">
+										<a href="javascript:power_review_more('995509', '00000');"
+										   class="more-options">사이즈때문에 고민되서 문의하고 주문했는데 잘 맞네요 가죽도 좋고
+											디자인도 예쁘고 넘넘 맘에 드네요</a><a class="pr-close"
+																	 href="javascript:power_review_more_close('995509');"> ...
 										<span>닫기</span>
 									</a>
-								</p>
-								<div class="ctr"></div>
-							</div>
-	
-							<div class="photo-list">
-								<ul>
-									<li><a
-										href="javascript:power_review_view_show('995481', '00000', '0', 'detail');"><span></span><img
-											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::201110112457.jpeg"
-											alt=""></a>
-										<div class="attach-preview"></div></li>
-								</ul>
-							</div>
-							
-							<div class="reply-wrap" style="display: none;">
-								<div class="wrt">
-									<textarea name="comment">댓글을 작성해 주세요~</textarea>
-									<a
-										href="javascript:power_review_comment_write('995481', '995481');">입력</a>
-								</div>
-								<ul class="lst">
-									<li class="cw"></li>
-									<li class="block_comment">
-										<dl>
-											<dt class="replace_icon">replace_writer</dt>
-											<dd>
-												<p>replace_comment</p>
-												<div class="ctr" replace_btn="">
-													<a class="modify" href="replace_link_modify">수정</a> <a
-														class="delete" href="replace_link_del">삭제</a>
-												</div>
-											</dd>
-										</dl>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<!-- 후기 작성 끝 -->
 
-
-						<!-- 후기 작성 시작 -->
-						<li id="power_review_block995481" class="power-review-list-box">
-							<dl class="desc">
-								<dt class="first">작성자</dt>
-								<dd>sehy*****</dd>
-								<dt>작성일</dt>
-								<dd>2020-11-10</dd>
-								<dt>조회수</dt>
-								<dd>
-									<span id="power_review_showhits">57</span>
-								</dd>
-							</dl>
-												
-							<div class="hd-box">
-								<div class="star-icon">
-									<span class="star"><em>★★★★★</em></span> <span class="survey">아주만족</span>
+									</p>
+									<div class="ctr"></div>
 								</div>
-							</div>
-							<div class="pr-options" style="display: none;">
-								<dl>
-									<dt class="emp">구매한 옵션</dt>
-									<dd class="emp">색상 : BLACK</dd>
+								<div class="photo-list">
+									<ul>
+										<li><a
+												href="javascript:power_review_view_show('995509', '00000', '0', 'detail');"><span></span><img
+												src="//board.makeshop.co.kr/board/special328/nasign_board8/square::201110112457.jpeg"
+												alt=""></a>
+											<div class="attach-preview"></div></li>
+									</ul>
+								</div>
+								<div class="reply">
+									<span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
+																				   href="javascript:power_review_good('995509', 'N', 'shopdetail');"><span>0</span></a>
+									<a class="no"
+									   href="javascript:power_review_bad('995509', 'N', 'shopdetail');"><span>0</span></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<%-- 일반리뷰--%>
+					<div class="signup-cont cont">
+						<ul class="PR15N01-review-wrap">
+							<li id="power_review_block995509" class="power-review-list-box">
+								<dl class="desc">
+									<dt class="first">작성자</dt>
+									<dd>nmoo*****</dd>
+									<dt>작성일</dt>
+									<dd>2020-11-07</dd>
+									<dt>조회수</dt>
+									<dd>
+										<span id="power_review_showhits">7</span>
+									</dd>
 								</dl>
-							</div>
-							<div class="content">
-								<p class="content_p">
-									<a href="" class="more-options">사진 그대로 실물 똑같이 예쁩니다:)<br> 넘 만족하고요
-										어디에든 잘 어울리고 수납공간 생각보다 꽤 들어갑니다 오야니 최고
-									</a><a class="pr-close" href="javascript:power_review_more_close('995481');"> ...
+								<div class="hd-box">
+									<div class="star-icon">
+							<span class="mini_rat">
+							<input type="number" class="rating text-default"  value="3" data-readonly/>
+							</span>
+										<span class="survey">별로임</span>
+									</div>
+								</div>
+								<div class="pr-options" style="display: none;">
+									<dl>
+										<dt class="emp">구매한 옵션</dt>
+										<dd class="emp">컬러 : BLACK, 사이즈 : S</dd>
+									</dl>
+								</div>
+								<div class="content">
+									<p class="content_p">
+										<a href="javascript:power_review_more('995509', '00000');"
+										   class="more-options">일반리뷰 입니다!! 사이즈때문에 고민되서 문의하고 주문했는데 잘 맞네요 가죽도 좋고
+											디자인도 예쁘고 넘넘 맘에 드네요</a><a class="pr-close"
+																	 href="javascript:power_review_more_close('995509');"> ...
 										<span>닫기</span>
 									</a>
-								</p>
-								<div class="ctr"></div>
-							</div>
-	
-							<div class="photo-list">
-								<ul>
-									<li><a
-										href="javascript:power_review_view_show('995481', '00000', '0', 'detail');"><span></span><img
-											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::201110112457.jpeg"
-											alt=""></a>
-										<div class="attach-preview"></div></li>
-								</ul>
-							</div>
-							
-							<div class="reply-wrap" style="display: none;">
-								<div class="wrt">
-									<textarea name="comment">댓글을 작성해 주세요~</textarea>
-									<a
-										href="javascript:power_review_comment_write('995481', '995481');">입력</a>
+
+									</p>
+									<div class="ctr"></div>
 								</div>
-								<ul class="lst">
-									<li class="cw"></li>
-									<li class="block_comment">
-										<dl>
-											<dt class="replace_icon">replace_writer</dt>
-											<dd>
-												<p>replace_comment</p>
-												<div class="ctr" replace_btn="">
-													<a class="modify" href="replace_link_modify">수정</a> <a
-														class="delete" href="replace_link_del">삭제</a>
-												</div>
-											</dd>
-										</dl>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<!-- 후기 작성 끝 -->						
-		
-					</ul>
+								<div class="reply">
+									<span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
+																				   href="javascript:power_review_good('995509', 'N', 'shopdetail');"><span>0</span></a>
+									<a class="no"
+									   href="javascript:power_review_bad('995509', 'N', 'shopdetail');"><span>0</span></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+
+
 					<!-- .PR15N01-review-wrap -->
 					<div class="paging">
 						<a class="now" href="#none"><span>1</span></a> <a
@@ -645,9 +1057,9 @@
 			<a name="brandqna_list"></a>
 			<div class="tit-detail">
 
-				<p class="more fe">
-					<a href="/board/board.html?code=nasign">+ MORE</a>
-				</p>
+<%--				<p class="more fe">--%>
+<%--					<a href="/board/board.html?code=nasign">+ MORE</a>--%>
+<%--				</p>--%>
 			</div>
 			<div class="table-slide qna-list">
 				<table summary="번호, 제목, 작성자, 작성일, 조회">
@@ -671,6 +1083,9 @@
 						</tr>
 					</thead>
 					<tbody>
+
+					<%-- 이곳에 있는 tr 반복해서 리스트 넣기 --%>
+
 						<tr class="nbg">
 							<td><div class="tb-center">
 									<span class="reviewnum">13</span>
@@ -690,29 +1105,12 @@
 								</div>
 							</td>
 						</tr>
-						
-						<tr class="nbg">
-							<td><div class="tb-center">
-									<span class="reviewnum">13</span>
-								</div></td>
-							<td><div class="tb-center"></div></td>
-							<td><div class="tb-left reply_depth0">
-									<span> <a href="">배송</a></span> <span style="font-size: 8pt;">(1)</span>
-								</div></td>
-							<td><div class="tb-center">박보배</div></td>
-							<td><div class="tb-center">2020.11.12</div></td>
-							<td><div class="tb-center"><span id="qna_board_showhits1">3</span></div></td>
-						</tr>
-						<tr class="MS_qna_content_box cnt" id="qna_board_block1">
-							<td colspan="6">
-								<div class="tb-left">
-									<div class="qna_board_content"></div>
-								</div>
-							</td>
-						</tr>	
-		
+
 					</tbody>
 				</table>
+
+
+
 				<div class="list-btm">
 					<div class="paging-wrap">
 						<div class="paging">
@@ -1168,5 +1566,49 @@
 		</div>
 	</div>
 </section>
+
+<!-- 스크립트파일 -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-36251023-1']);
+	_gaq.push(['_setDomainName', 'jqueryscript.net']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	try {
+		fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+			return true;
+		}).catch(function(e) {
+			var carbonScript = document.createElement("script");
+			carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+			carbonScript.id = "_carbonads_js";
+			document.getElementById("carbon-block").appendChild(carbonScript);
+		});
+	} catch (error) {
+		console.log(error);
+	}
+	$('.tabs .tab').click(function(){
+		if ($(this).hasClass('signin')) {
+			$('.tabs .tab').removeClass('active');
+			$(this).addClass('active');
+			$('.cont').hide();
+			$('.signin-cont').show();
+		}
+		if ($(this).hasClass('signup')) {
+			$('.tabs .tab').removeClass('active');
+			$(this).addClass('active');
+			$('.cont').hide();
+			$('.signup-cont').show();
+		}
+	});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- 스크립트파일끝 -->
+
+
+
 
 <jsp:include page="/footer.jsp" />

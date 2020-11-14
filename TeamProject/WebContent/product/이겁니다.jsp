@@ -22,9 +22,9 @@
 <!-- //         }); -->
 <!--     </script> -->
 <!-- 끝 -->
+
 <!-- TAB기능 스타일 -->
 <style>
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 #powerReview .tabs {
   width: 100%;
@@ -38,7 +38,7 @@
   cursor: pointer;
   letter-spacing: 0;
   border-bottom: 1px solid #d9d9d9;
-  -moz-user-select: -moz-none;
+  /*-moz-user-select: -moz-none;*/
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
@@ -518,6 +518,8 @@
 		  		     </ul>
 			    </div>
 				<div class="content">
+
+<%--					포토리뷰--%>
 				       <div class="signin-cont cont">
 				          <ul class="PR15N01-review-wrap">
 					        <li id="power_review_block995509" class="power-review-list-box">
@@ -575,6 +577,8 @@
 						</li>
 					</ul>	
     			   			</div>
+
+<%--						일반리뷰--%>
     			            <div class="signup-cont cont">
     			            <ul class="PR15N01-review-wrap">
     			            <li id="power_review_block995509" class="power-review-list-box">
