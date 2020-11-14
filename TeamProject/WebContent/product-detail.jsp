@@ -656,9 +656,7 @@
 								</ul>
 							</div>
 							<div class="reply">
-								<a class="cnt"
-									href="javascript:power_review_view_comment('995509', '995509');">0
-									▼</a> <span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
+								<span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
 									href="javascript:power_review_good('995509', 'N', 'shopdetail');"><span>0</span></a>
 								<a class="no"
 									href="javascript:power_review_bad('995509', 'N', 'shopdetail');"><span>0</span></a>
@@ -706,9 +704,7 @@
 								<div class="ctr"></div>
 							</div>
 							<div class="reply">
-								<a class="cnt"
-									href="javascript:power_review_view_comment('995509', '995509');">0
-									▼</a> <span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
+									 <span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
 									href="javascript:power_review_good('995509', 'N', 'shopdetail');"><span>0</span></a>
 								<a class="no"
 									href="javascript:power_review_bad('995509', 'N', 'shopdetail');"><span>0</span></a>
@@ -1189,6 +1185,7 @@
 				class="stext-107 cl6 p-lr-25"> Categories: Jacket, Men </span>
 		</div>
 </section>
+<!-- 스크립트파일 -->
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -1230,5 +1227,6 @@ $('.tabs .tab').click(function(){
 });
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<!-- 스크립트파일끝 -->
 
 <jsp:include page="footer.jsp" />
