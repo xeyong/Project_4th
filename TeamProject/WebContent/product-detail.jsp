@@ -25,6 +25,95 @@
     </script>
 <!-- 끝 -->
 
+<!-- TAB기능 -->
+<style>
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+#powerReview .tabs {
+  width: 100%;
+  margin-bottom: 29px;
+  border-bottom: 1px solid #d9d9d9;
+}
+#powerReview .tabs .tab {
+  display: inline-block;
+  margin-bottom: -1px;
+  padding: 20px 15px 10px;
+  cursor: pointer;
+  letter-spacing: 0;
+  border-bottom: 1px solid #d9d9d9;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: all 0.1s ease-in-out;
+}
+#powerReview .tabs .tab a {
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  transition: all 0.1s ease-in-out;
+}
+#powerReview .tabs .tab.active a, body .container .tabs .tab:hover a {
+  color: #263238;
+}
+#powerReview .tabs .tab.active {
+  border-bottom: 1px solid #263238;
+}
+
+
+#powerReview .content .signup-cont {
+  display: none;
+}
+
+@keyframes slideIn {
+  0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    margin-left: -320px;
+  }
+  100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+@-webkit-keyframes slideIn {
+  0% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    margin-left: -320px;
+  }
+  100% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+.credits {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #999999;
+  font-size: 14px;
+  margin: 0 10px 10px 0;
+}
+.credits a {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+</style>
+
+
+
+<!-- 끝 -->
+
 <!-- 리뷰 팝업창  -->
 
 <div id="viewPowerReview_wrapper" class="popup_wrapper"
@@ -543,14 +632,21 @@
 					</ul>
 				</div>
 				<!-- .PR15N01-hd -->
-				<div class="pr-division-tab">
-					<ul>
-						<li class="now" val="photo"><a
-							href="javascript:power_review_list_photo('N');">포토리뷰(3)</a></li>
-						<li val="basic"><a
-							href="javascript:power_review_list_normal('N');">일반리뷰(3)</a></li>
-					</ul>
-				</div>
+
+			        <div class="tabs">
+				            <span class="tab signin active"><a href="#signin">포토리뷰</a></span>
+				            <span class="tab signup"><a href="#signup">일반리뷰</a></span>
+			        </div>
+			        <div class="content">
+				            <div class="signin-cont cont">
+					                <p>포토리뷰리스트</p>
+    			   			</div>
+    			            <div class="signup-cont cont">
+                				    <p>일반리뷰리스트</p>
+           		             </div>
+			        </div>
+
+
 				<div id="listPowerReview" class="MS_power_review_list">
 
 					<ul class="PR15N01-review-wrap">
@@ -1297,6 +1393,24 @@ try {
 } catch (error) {
   console.log(error);
 }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<script type="text/javascript">
+$('.tabs .tab').click(function(){
+    if ($(this).hasClass('signin')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signin-cont').show();
+    } 
+    if ($(this).hasClass('signup')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signup-cont').show();
+    }
+});
 </script>
 
 

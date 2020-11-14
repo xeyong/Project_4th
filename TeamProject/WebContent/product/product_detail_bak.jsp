@@ -11,9 +11,6 @@
 <link type="text/css" rel="stylesheet" href="../scss/menu.1.css" />
 <link type="text/css" rel="stylesheet"
 	href="../scss/power_review_custom.4.css" />
-	
-	
-
 <!-- breadcrumb -->
 <div class="container">
 	<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
@@ -279,6 +276,10 @@
 			</div>
 
 
+
+
+			<link type="text/css" rel="stylesheet"
+				href="/template_common/shop/modern_simple/power_review_custom.4.css?t=201907151000">
 			<div id="powerReview">
 				<div class="hd-t">
 					<h2>POWER REVIEW</h2>
@@ -449,11 +450,6 @@
 				<div id="listPowerReview" class="MS_power_review_list">
 
 					<ul class="PR15N01-review-wrap">
-						
-						
-						
-						
-						<!-- 후기 작성 시작 -->
 						<li id="power_review_block995481" class="power-review-list-box">
 							<dl class="desc">
 								<dt class="first">작성자</dt>
@@ -497,7 +493,14 @@
 										<div class="attach-preview"></div></li>
 								</ul>
 							</div>
-							
+							<div class="reply">
+								<a class="cnt"
+									href="javascript:power_review_view_comment('995481', '995481');">0
+									▼</a> <span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
+									href="javascript:power_review_good('995481', 'N', 'shopdetail');"><span>0</span></a>
+								<a class="no"
+									href="javascript:power_review_bad('995481', 'N', 'shopdetail');"><span>0</span></a>
+							</div>
 							<div class="reply-wrap" style="display: none;">
 								<div class="wrt">
 									<textarea name="comment">댓글을 작성해 주세요~</textarea>
@@ -521,78 +524,8 @@
 								</ul>
 							</div>
 						</li>
-						<!-- 후기 작성 끝 -->
-
-
-						<!-- 후기 작성 시작 -->
-						<li id="power_review_block995481" class="power-review-list-box">
-							<dl class="desc">
-								<dt class="first">작성자</dt>
-								<dd>sehy*****</dd>
-								<dt>작성일</dt>
-								<dd>2020-11-10</dd>
-								<dt>조회수</dt>
-								<dd>
-									<span id="power_review_showhits">57</span>
-								</dd>
-							</dl>
-												
-							<div class="hd-box">
-								<div class="star-icon">
-									<span class="star"><em>★★★★★</em></span> <span class="survey">아주만족</span>
-								</div>
-							</div>
-							<div class="pr-options" style="display: none;">
-								<dl>
-									<dt class="emp">구매한 옵션</dt>
-									<dd class="emp">색상 : BLACK</dd>
-								</dl>
-							</div>
-							<div class="content">
-								<p class="content_p">
-									<a href="" class="more-options">사진 그대로 실물 똑같이 예쁩니다:)<br> 넘 만족하고요
-										어디에든 잘 어울리고 수납공간 생각보다 꽤 들어갑니다 오야니 최고
-									</a><a class="pr-close" href="javascript:power_review_more_close('995481');"> ...
-										<span>닫기</span>
-									</a>
-								</p>
-								<div class="ctr"></div>
-							</div>
-	
-							<div class="photo-list">
-								<ul>
-									<li><a
-										href="javascript:power_review_view_show('995481', '00000', '0', 'detail');"><span></span><img
-											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::201110112457.jpeg"
-											alt=""></a>
-										<div class="attach-preview"></div></li>
-								</ul>
-							</div>
-							
-							<div class="reply-wrap" style="display: none;">
-								<div class="wrt">
-									<textarea name="comment">댓글을 작성해 주세요~</textarea>
-									<a
-										href="javascript:power_review_comment_write('995481', '995481');">입력</a>
-								</div>
-								<ul class="lst">
-									<li class="cw"></li>
-									<li class="block_comment">
-										<dl>
-											<dt class="replace_icon">replace_writer</dt>
-											<dd>
-												<p>replace_comment</p>
-												<div class="ctr" replace_btn="">
-													<a class="modify" href="replace_link_modify">수정</a> <a
-														class="delete" href="replace_link_del">삭제</a>
-												</div>
-											</dd>
-										</dl>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<!-- 후기 작성 끝 -->						
+						
+						
 		
 					</ul>
 					<!-- .PR15N01-review-wrap -->
