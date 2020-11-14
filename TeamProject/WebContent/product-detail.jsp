@@ -15,6 +15,7 @@
     <script src="js/bootstrap4-rating-input.js"></script>
     <style type="text/css">
       .rat { margin: 150px auto; font-size: 20px; }
+      .mini_rat{margin: 150px auto; font-size: 15px; }
     </style>
     <script type="text/javascript">
         $(function () {
@@ -25,7 +26,7 @@
     </script>
 <!-- 끝 -->
 
-<!-- TAB기능 -->
+<!-- TAB기능 스타일 -->
 <style>
 
 @charset "UTF-8";
@@ -92,25 +93,7 @@
     margin-left: 0px;
   }
 }
-.credits {
-  display: block;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: #999999;
-  font-size: 14px;
-  margin: 0 10px 10px 0;
-}
-.credits a {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
-  color: inherit;
-  font-weight: 700;
-  text-decoration: none;
-}
 </style>
-
-
 
 <!-- 끝 -->
 
@@ -617,40 +600,16 @@
 					</p>
 				</div>
 				<!-- .PRSOIM01-info -->
-
-				<div class="PR15N01-hd">
-					<h2>
-						프리미엄 상품평<span>(6개)</span>
-					</h2>
-					<ul class="sort">
-						<li class="now" val="date"><a
-							href="javascript:power_review_sort('date');">최신 순</a></li>
-						<li val="score"><a
-							href="javascript:power_review_sort('score');">평점 순</a></li>
-						<li "="" val="good"><a
-							href="javascript:power_review_sort('good');">추천 순</a></li>
-					</ul>
-				</div>
 				<!-- .PR15N01-hd -->
 
 			        <div class="tabs">
-				            <span class="tab signin active"><a href="#signin">포토리뷰</a></span>
-				            <span class="tab signup"><a href="#signup">일반리뷰</a></span>
+				            <span class="tab signin active"><a href="#signin">포토리뷰()</a></span><!-- 포토리뷰(db연동값삽입) -->
+				            <span class="tab signup"><a href="#signup">일반리뷰()</a></span><!-- 일반리뷰(db연동값삽입) -->
 			        </div>
 			        <div class="content">
-				            <div class="signin-cont cont">
-					                <p>포토리뷰리스트</p>
-    			   			</div>
-    			            <div class="signup-cont cont">
-                				    <p>일반리뷰리스트</p>
-           		             </div>
-			        </div>
-
-
-				<div id="listPowerReview" class="MS_power_review_list">
-
-					<ul class="PR15N01-review-wrap">
-						<li id="power_review_block995509" class="power-review-list-box">
+				       <div class="signin-cont cont">
+				          <ul class="PR15N01-review-wrap">
+					        <li id="power_review_block995509" class="power-review-list-box">
 							<dl class="desc">
 								<dt class="first">작성자</dt>
 								<dd>nmoo*****</dd>
@@ -663,13 +622,10 @@
 							</dl>
 							<div class="hd-box">
 								<div class="star-icon">
-									<span class="star"><em>★★★★★</em></span> <span class="survey">아주만족</span>
-									<span class="icon"> <img
-										src="/images/d3/modern_simple/ico_new_h38.png" alt="new">
-										<img src="/images/d3/modern_simple/ico_camera_h38.png"
-										alt="camera"> <img
-										src="/images/d3/modern_simple/ico_mobile_h38.png" alt="mobile">
-									</span>
+							<span class="mini_rat">
+							<input type="number" class="rating text-default"  value="5" data-readonly/>
+							</span><!-- value에 각각 리뷰의별점값넣어야됨 -->
+									<span class="survey">아주만족</span>
 								</div>
 							</div>
 							<div class="pr-options" style="display: none;">
@@ -707,48 +663,28 @@
 								<a class="no"
 									href="javascript:power_review_bad('995509', 'N', 'shopdetail');"><span>0</span></a>
 							</div>
-							<div class="reply-wrap" style="display: none;">
-								<div class="wrt">
-									<textarea name="comment">댓글을 작성해 주세요~</textarea>
-									<a
-										href="javascript:power_review_comment_write('995509', '995509');">입력</a>
-								</div>
-								<ul class="lst">
-									<li class="cw"></li>
-									<li class="block_comment">
-										<dl>
-											<dt class="replace_icon">replace_writer</dt>
-											<dd>
-												<p>replace_comment</p>
-												<div class="ctr" replace_btn="">
-													<a class="modify" href="replace_link_modify">수정</a> <a
-														class="delete" href="replace_link_del">삭제</a>
-												</div>
-											</dd>
-										</dl>
-									</li>
-								</ul>
-							</div>
 						</li>
-						<li id="power_review_block997709" class="power-review-list-box">
+					</ul>	
+    			   			</div>
+    			            <div class="signup-cont cont">
+    			            <ul class="PR15N01-review-wrap">
+    			            <li id="power_review_block995509" class="power-review-list-box">
 							<dl class="desc">
 								<dt class="first">작성자</dt>
-								<dd>lees*****</dd>
+								<dd>nmoo*****</dd>
 								<dt>작성일</dt>
-								<dd>2020-01-28</dd>
+								<dd>2020-11-07</dd>
 								<dt>조회수</dt>
 								<dd>
-									<span id="power_review_showhits">184</span>
+									<span id="power_review_showhits">7</span>
 								</dd>
 							</dl>
 							<div class="hd-box">
 								<div class="star-icon">
-									<span class="star"><em>★★★★</em>★</span> <span class="survey">만족</span>
-									<span class="icon"> <img
-										src="/images/d3/modern_simple/ico_camera_h38.png" alt="camera">
-										<img src="/images/d3/modern_simple/ico_mobile_h38.png"
-										alt="mobile">
-									</span>
+							<span class="mini_rat">
+							<input type="number" class="rating text-default"  value="3" data-readonly/>
+							</span>
+									 <span class="survey">별로임</span>
 								</div>
 							</div>
 							<div class="pr-options" style="display: none;">
@@ -759,144 +695,31 @@
 							</div>
 							<div class="content">
 								<p class="content_p">
-									<a href="javascript:power_review_more('997709', '00000');"
-										class="more-options">스커트 양가죽이서서 부드럽고 허리부분 일부도 밴드 처리되서 입는데
-										편하네요<br>
-									</a><a class="pr-close"
-										href="javascript:power_review_more_close('997709');"> ...
+									<a href="javascript:power_review_more('995509', '00000');"
+										class="more-options">일반리뷰 입니다!! 사이즈때문에 고민되서 문의하고 주문했는데 잘 맞네요 가죽도 좋고
+										디자인도 예쁘고 넘넘 맘에 드네요</a><a class="pr-close"
+										href="javascript:power_review_more_close('995509');"> ...
 										<span>닫기</span>
 									</a>
 
 								</p>
 								<div class="ctr"></div>
 							</div>
-							<div class="photo-list">
-								<ul>
-									<li><a
-										href="javascript:power_review_view_show('997709', '00000', '0', 'detail');"><span></span><img
-											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::20200128_220150.jpg"
-											alt=""></a>
-										<div class="attach-preview"></div></li>
-								</ul>
-							</div>
 							<div class="reply">
 								<a class="cnt"
-									href="javascript:power_review_view_comment('997709', '997709');">0
+									href="javascript:power_review_view_comment('995509', '995509');">0
 									▼</a> <span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
-									href="javascript:power_review_good('997709', 'N', 'shopdetail');"><span>0</span></a>
+									href="javascript:power_review_good('995509', 'N', 'shopdetail');"><span>0</span></a>
 								<a class="no"
-									href="javascript:power_review_bad('997709', 'N', 'shopdetail');"><span>0</span></a>
-							</div>
-							<div class="reply-wrap" style="display: none;">
-								<div class="wrt">
-									<textarea name="comment">댓글을 작성해 주세요~</textarea>
-									<a
-										href="javascript:power_review_comment_write('997709', '997709');">입력</a>
-								</div>
-								<ul class="lst">
-									<li class="cw"></li>
-									<li class="block_comment">
-										<dl>
-											<dt class="replace_icon">replace_writer</dt>
-											<dd>
-												<p>replace_comment</p>
-												<div class="ctr" replace_btn="">
-													<a class="modify" href="replace_link_modify">수정</a> <a
-														class="delete" href="replace_link_del">삭제</a>
-												</div>
-											</dd>
-										</dl>
-									</li>
-								</ul>
+									href="javascript:power_review_bad('995509', 'N', 'shopdetail');"><span>0</span></a>
 							</div>
 						</li>
-						<li id="power_review_block998162" class="power-review-list-box">
-							<dl class="desc">
-								<dt class="first">작성자</dt>
-								<dd>nh@f***</dd>
-								<dt>작성일</dt>
-								<dd>2019-12-25</dd>
-								<dt>조회수</dt>
-								<dd>
-									<span id="power_review_showhits">176</span>
-								</dd>
-							</dl>
-							<div class="hd-box">
-								<div class="star-icon">
-									<span class="star"><em>★★★★★</em></span> <span class="survey">아주만족</span>
-									<span class="icon"> <img
-										src="/images/d3/modern_simple/ico_camera_h38.png" alt="camera">
-										<img src="/images/d3/modern_simple/ico_mobile_h38.png"
-										alt="mobile">
-									</span>
-								</div>
-							</div>
-							<div class="pr-options" style="display: none;">
-								<dl>
-									<dt class="emp">구매한 옵션</dt>
-									<dd class="emp">컬러 : BLACK, 사이즈 : S</dd>
-								</dl>
-							</div>
-							<div class="content">
-								<p class="content_p">
-									<a href="javascript:power_review_more('998162', '00000');"
-										class="more-options">무엇보다도 가죽의 품질이 너무 좋고 스커트 라인도 예쁩니다
-										여성스러워요 저렴한 가격에 득템해서 흐뭇합니다</a><a class="pr-close"
-										href="javascript:power_review_more_close('998162');"> ...
-										<span>닫기</span>
-									</a>
-
-								</p>
-								<div class="ctr"></div>
-							</div>
-							<div class="photo-list">
-								<ul>
-									<li><a
-										href="javascript:power_review_view_show('998162', '00000', '0', 'detail');"><span></span><img
-											src="//board.makeshop.co.kr/board/special328/nasign_board8/square::20191225_192339_ro.jpg"
-											alt=""></a>
-										<div class="attach-preview"></div></li>
-								</ul>
-							</div>
-							<div class="reply">
-								<a class="cnt"
-									href="javascript:power_review_view_comment('998162', '998162');">0
-									▼</a> <span class="pr-txt">이 리뷰가 도움이 되셨나요?</span> <a class="yes"
-									href="javascript:power_review_good('998162', 'N', 'shopdetail');"><span>0</span></a>
-								<a class="no"
-									href="javascript:power_review_bad('998162', 'N', 'shopdetail');"><span>0</span></a>
-							</div>
-							<div class="reply-wrap" style="display: none;">
-								<div class="wrt">
-									<textarea name="comment">댓글을 작성해 주세요~</textarea>
-									<a
-										href="javascript:power_review_comment_write('998162', '998162');">입력</a>
-								</div>
-								<ul class="lst">
-									<li class="cw"></li>
-									<li class="block_comment">
-										<dl>
-											<dt class="replace_icon">replace_writer</dt>
-											<dd>
-												<p>replace_comment</p>
-												<div class="ctr" replace_btn="">
-													<a class="modify" href="replace_link_modify">수정</a> <a
-														class="delete" href="replace_link_del">삭제</a>
-												</div>
-											</dd>
-										</dl>
-									</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-					<!-- .PR15N01-review-wrap -->
-					<div class="paging">
-						<a class="now" href="#none"><span>1</span></a>
-
-					</div>
-					<!-- .paging -->
-				</div>
+                	</ul>			   
+           		             </div>
+           		             	<div class="paging">
+						           <a class="now" href="#none"><span>1</span></a>
+					           </div>
+			    </div>
 				<div id="updatePowerReview" class="MS_power_review_update"></div>
 				<div id="layerReplyModify" style="display: none">
 					<div class="layer-wrap">
@@ -1379,8 +1202,6 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script>
-<script>
 try {
   fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
     return true;
@@ -1393,10 +1214,6 @@ try {
 } catch (error) {
   console.log(error);
 }
-</script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-<script type="text/javascript">
 $('.tabs .tab').click(function(){
     if ($(this).hasClass('signin')) {
         $('.tabs .tab').removeClass('active');
@@ -1412,6 +1229,6 @@ $('.tabs .tab').click(function(){
     }
 });
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
 <jsp:include page="footer.jsp" />
