@@ -1,6 +1,7 @@
+/TestController.class
 /action/
 /controller/
-/vo/
-/svc/
-/db/
 /dao/
+/db/
+/svc/
+/vo/
