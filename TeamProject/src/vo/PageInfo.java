@@ -1,6 +1,6 @@
 package vo;
 
-// ÆäÀÌÂ¡ Ã³¸®¸¦ À§ÇÑ Á¤º¸¸¦ ÀúÀåÇÏ´Â Å¬·¡½º
+// í˜ì´ì§• ì²˜ë¦¬ë¥¼ ìœ„í•œ ì •ë³´ë¥¼ ì €ì¥í•˜ëŠ” í´ë˜ìŠ¤
 public class PageInfo {
 	private int page;
 	private int maxPage;

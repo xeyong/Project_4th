@@ -10,7 +10,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-// ¸ğµç ¸Ş¼­µå´Â ÀÎ½ºÅÏ½º »ı¼º ¾øÀÌ Á¢±Ù °¡´ÉÇÏµµ·Ï static ¸Ş¼­µå·Î Á¤ÀÇ
+// ëª¨ë“  ë©”ì„œë“œëŠ” ì¸ìŠ¤í„´ìŠ¤ ìƒì„± ì—†ì´ ì ‘ê·¼ ê°€ëŠ¥í•˜ë„ë¡ static ë©”ì„œë“œë¡œ ì •ì˜
 public class JdbcUtil {
 	
 	// -------------------getConnection()-------------------
@@ -18,18 +18,18 @@ public class JdbcUtil {
 		Connection con = null;
 		
 		try {
-			// JNDI ¿¬°áÀ» À§ÇÑ ¼³Á¤
+			// JNDI ì—°ê²°ì„ ìœ„í•œ ì„¤ì •
 			Context initCtx = new InitialContext();
 			
 			Context envCtx = (Context)initCtx.lookup("java:comp/env");
 			
-			// context.xml ÆÄÀÏ ³»ÀÇ <Resource> ÅÂ±× ³»¿¡¼­ JNDI ¼³Á¤À» À§ÇÑ ÀÌ¸§ °¡Á®¿À±â
+			// context.xml íŒŒì¼ ë‚´ì˜ <Resource> íƒœê·¸ ë‚´ì—ì„œ JNDI ì„¤ì •ì„ ìœ„í•œ ì´ë¦„ ê°€ì ¸ì˜¤ê¸°
 			DataSource ds = (DataSource)envCtx.lookup("jdbc/MySQL");
 			
-			// DataSource °´Ã¼ÀÇ getConnetion() ¸Ş¼­µå È£Ãâ
-			con = ds.getConnection(); // => ds.getConnection(username, password) Çü½ÄÀ¸·Îµµ »ç¿ë °¡´É
+			// DataSource ê°ì²´ì˜ getConnetion() ë©”ì„œë“œ í˜¸ì¶œ
+			con = ds.getConnection(); // => ds.getConnection(username, password) í˜•ì‹ìœ¼ë¡œë„ ì‚¬ìš© ê°€ëŠ¥
 			
-			// JDBC ¸¦ ÅëÇÑ DB ÀÛ¾÷¿¡ ´ëÇÑ Auto Commit ±â´É ÇØÁ¦
+			// JDBC ë¥¼ í†µí•œ DB ì‘ì—…ì— ëŒ€í•œ Auto Commit ê¸°ëŠ¥ í•´ì œ
 			con.setAutoCommit(false);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -40,12 +40,12 @@ public class JdbcUtil {
 			
 		}
 		
-		// Connection ¸®ÅÏ
+		// Connection ë¦¬í„´
 		return con;
 	}
 	// -------------------getConnection()-------------------
 	
-	// -----------Connection, PreparedStatement, ResultSet °´Ã¼ ¹İÈ¯ÇÏ´Â close() ¸Ş¼­µå
+	// -----------Connection, PreparedStatement, ResultSet ê°ì²´ ë°˜í™˜í•˜ëŠ” close() ë©”ì„œë“œ
 	public static void close(Connection con) {
 		try {
 			con.close();
@@ -67,8 +67,8 @@ public class JdbcUtil {
 			e.printStackTrace();
 		}
 	}
-	// -----------Connection, PreparedStatement, ResultSet °´Ã¼ ¹İÈ¯ÇÏ´Â close() ¸Ş¼­µå
-	// -----------Æ®·£Àè¼Ç Ã³¸®¸¦ À§ÇÑ commit(), rollback() ¸Ş¼­µå Á¤ÀÇ ------------
+	// -----------Connection, PreparedStatement, ResultSet ê°ì²´ ë°˜í™˜í•˜ëŠ” close() ë©”ì„œë“œ
+	// -----------íŠ¸ëœì­ì…˜ ì²˜ë¦¬ë¥¼ ìœ„í•œ commit(), rollback() ë©”ì„œë“œ ì •ì˜ ------------
 	public static void commit(Connection con) {
 		try {
 			con.commit();
@@ -83,5 +83,5 @@ public class JdbcUtil {
 			e.printStackTrace();
 		}
 	}
-	// -----------Æ®·£Àè¼Ç Ã³¸®¸¦ À§ÇÑ commit(), rollback() ¸Ş¼­µå Á¤ÀÇ ------------
+	// -----------íŠ¸ëœì­ì…˜ ì²˜ë¦¬ë¥¼ ìœ„í•œ commit(), rollback() ë©”ì„œë“œ ì •ì˜ ------------
 }

@@ -1,8 +1,8 @@
 package vo;
 
 public class ActionForward {
-	private String path; // Æ÷¿öµù ÇÒ View ÆäÀÌÁö URL ÀúÀå
-	private boolean redirect; // Æ÷¿öµù ¹æ½Ä ÀúÀå
+	private String path; // í¬ì›Œë”© í•  View í˜ì´ì§€ URL ì €ì¥
+	private boolean redirect; // í¬ì›Œë”© ë°©ì‹ ì €ì¥
 	
 	public String getPath() {
 		return path;

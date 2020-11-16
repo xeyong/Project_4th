@@ -14,48 +14,48 @@ public class BoardListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// BoardListService Å¬·¡½º ÅëÇØ °Ô½Ã¹° ¸ñ·Ï Á¶È¸ ÈÄ
-		// /board/blog.jsp ÆäÀÌÁö·Î Æ÷¿öµù
-		//  request °´Ã¼ À¯Áö, ¼­ºí¸´ ÁÖ¼Ò º¯°æ ¾øÀÌ Æ÷¿öµù -> Dispatcher
+		// BoardListService í´ë˜ìŠ¤ í†µí•´ ê²Œì‹œë¬¼ ëª©ë¡ ì¡°íšŒ í›„
+		// /board/blog.jsp í˜ì´ì§€ë¡œ í¬ì›Œë”©
+		//  request ê°ì²´ ìœ ì§€, ì„œë¸”ë¦¿ ì£¼ì†Œ ë³€ê²½ ì—†ì´ í¬ì›Œë”© -> Dispatcher
 		System.out.println("BoardListAction~");
 		
 		ActionForward forward = null;
 		
-		// ÆäÀÌÂ¡ Ã³¸® À§ÇØ º¯¼ö ¼±¾ğ
-		int page = 1; // ÇöÀç ÆäÀÌÁö ¹øÈ£ ÀúÀå
-		int limit = 10; // ÆäÀÌÁö ´ç Ç¥½ÃÇÒ °Ô½Ã¹° ¼ö
+		// í˜ì´ì§• ì²˜ë¦¬ ìœ„í•´ ë³€ìˆ˜ ì„ ì–¸
+		int page = 1; // í˜„ì¬ í˜ì´ì§€ ë²ˆí˜¸ ì €ì¥
+		int limit = 10; // í˜ì´ì§€ ë‹¹ í‘œì‹œí•  ê²Œì‹œë¬¼ ìˆ˜
 		
-		// request °´Ã¼·ÎºÎÅÍ null ÀÌ ¾Æ´Ñ "page" ÆÄ¶ó¹ÌÅÍ Àü´Ş ½Ã ÇØ´ç º¯¼ö¿¡ °ª ÀúÀå
+		// request ê°ì²´ë¡œë¶€í„° null ì´ ì•„ë‹Œ "page" íŒŒë¼ë¯¸í„° ì „ë‹¬ ì‹œ í•´ë‹¹ ë³€ìˆ˜ì— ê°’ ì €ì¥
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
-		// BoardListService -> getListCount() -> ÀüÃ¼ °Ô½Ã¹° ¼ö °¡Á®¿À±â
+		// BoardListService -> getListCount() -> ì „ì²´ ê²Œì‹œë¬¼ ìˆ˜ ê°€ì ¸ì˜¤ê¸°
 		// getListCount()
 		BoardListService boardListService = new BoardListService();
 		int listCount = boardListService.getListCount();
 		
-		// ÀüÃ¼ °Ô½Ã¹° ¼ö °¡Á®¿À±â
+		// ì „ì²´ ê²Œì‹œë¬¼ ìˆ˜ ê°€ì ¸ì˜¤ê¸°
 		ArrayList<BoardBean> articleList = new ArrayList<BoardBean>();
 		articleList = boardListService.getArticleList(page, limit);
 		
-		// ÆäÀÌÁö °è»ê ÀÛ¾÷
-		// 1. ÀüÃ¼ ÆäÀÌÁö °è»ê
+		// í˜ì´ì§€ ê³„ì‚° ì‘ì—…
+		// 1. ì „ì²´ í˜ì´ì§€ ê³„ì‚°
 		int maxPage = (int)((double)listCount / limit + 0.95);
 		
-		// 2. ÇöÀç ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ ½ÃÀÛ ÆäÀÌÁö ¼ö
+		// 2. í˜„ì¬ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ì‹œì‘ í˜ì´ì§€ ìˆ˜
 		int startPage = ((int)((double)page / 10 + 0.9) -1) * 10 + 1;
 		
-		// 3. ÇöÀç ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ ¸¶Áö¸· ÆäÀÌÁö
+		// 3. í˜„ì¬ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ë§ˆì§€ë§‰ í˜ì´ì§€
 		int endPage = startPage + 10 - 1;
 		
-		// 4. ¸¶Áö¸· ÆäÀÌÁö > ÇöÀç ÆäÀÌÁö¿¡¼­ Ç¥½ÃÇÒ ÃÖ´ë ÆäÀÌÁö 
-		//    -> ¸¶Áö¸· ÆäÀÌÁö == ÀüÃ¼ ÆäÀÌÁö ¹øÈ£ Ã³¸®
+		// 4. ë§ˆì§€ë§‰ í˜ì´ì§€ > í˜„ì¬ í˜ì´ì§€ì—ì„œ í‘œì‹œí•  ìµœëŒ€ í˜ì´ì§€ 
+		//    -> ë§ˆì§€ë§‰ í˜ì´ì§€ == ì „ì²´ í˜ì´ì§€ ë²ˆí˜¸ ì²˜ë¦¬
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
 		
-		// ¸ğµç ÆäÀÌÁö Á¤º¸ PageInfo ÀúÀå
+		// ëª¨ë“  í˜ì´ì§€ ì •ë³´ PageInfo ì €ì¥
 		PageInfo pageInfo = new PageInfo(page, maxPage, startPage, endPage, listCount);
 		
 		request.setAttribute("pageInfo", pageInfo);

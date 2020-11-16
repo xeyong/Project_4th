@@ -11,7 +11,7 @@ import vo.BoardBean;
 import static db.JdbcUtil.*;
 
 public class BoardDAO {
-	// --------------½Ì±ÛÅæ ÆĞÅÏ È°¿ë---------------
+	// --------------ì‹±ê¸€í†¤ íŒ¨í„´ í™œìš©---------------
 	private BoardDAO() {}
 	
 	private static BoardDAO instance = new BoardDAO();
@@ -19,18 +19,18 @@ public class BoardDAO {
 	public static BoardDAO getInstance() {
 		return instance;
 	}
-	// --------------½Ì±ÛÅæ ÆĞÅÏ È°¿ë---------------
-	Connection con; // Connection °´Ã¼¸¦ Àü´Ş¹Ş¾Æ ÀúÀåÇÒ ¸â¹öº¯¼ö
+	// --------------ì‹±ê¸€í†¤ íŒ¨í„´ í™œìš©---------------
+	Connection con; // Connection ê°ì²´ë¥¼ ì „ë‹¬ë°›ì•„ ì €ì¥í•  ë©¤ë²„ë³€ìˆ˜
 
 	// --------------setConnection()---------------
-	// ¿ÜºÎ(Service Å¬·¡½º)·ÎºÎÅÍ Connection °´Ã¼¸¦ Àü´Ş¹Ş¾Æ
-	// ¸â¹öº¯¼ö¿¡ ÀúÀåÇÏ´Â setConnection() ¸Ş¼­µå Á¤ÀÇ
+	// ì™¸ë¶€(Service í´ë˜ìŠ¤)ë¡œë¶€í„° Connection ê°ì²´ë¥¼ ì „ë‹¬ë°›ì•„
+	// ë©¤ë²„ë³€ìˆ˜ì— ì €ì¥í•˜ëŠ” setConnection() ë©”ì„œë“œ ì •ì˜
 	public void setConnection(Connection con) {
 		this.con = con;
 	}
 	// --------------setConnection()---------------
 	// --------------insertArticle()---------------
-	// ±Û µî·Ï ÀÛ¾÷
+	// ê¸€ ë“±ë¡ ì‘ì—…
 	public int insertArticle(BoardBean boardBean) {
 		System.out.println("BoardDAO - insertArticle()~");
 		int insertCount = 0;
@@ -38,14 +38,14 @@ public class BoardDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		int num = 1; // ±Û ¹øÈ£¸¦ ÀúÀåÇÒ º¯¼ö
+		int num = 1; // ê¸€ ë²ˆí˜¸ë¥¼ ì €ì¥í•  ë³€ìˆ˜
 		
 		try {
 			String sql = "SELECT max(board_num) FROM board";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
-			// Á¶È¸ °ª ÀÖÀ¸¸é + 1, ¾øÀ¸¸é ÀÛ¼ºµÈ ±ÛÀÌ ¾øÀ¸¹Ç·Î num = 1 ±×´ë·Î »ç¿ë
+			// ì¡°íšŒ ê°’ ìˆìœ¼ë©´ + 1, ì—†ìœ¼ë©´ ì‘ì„±ëœ ê¸€ì´ ì—†ìœ¼ë¯€ë¡œ num = 1 ê·¸ëŒ€ë¡œ ì‚¬ìš©
 			if(rs.next()) {
 				num = rs.getInt(1) + 1;
 			}
@@ -57,14 +57,14 @@ public class BoardDAO {
 			ps.setString(4, boardBean.getBoard_subject());
 			ps.setString(5, boardBean.getBoard_content());
 			ps.setString(6, boardBean.getBoard_file());
-			ps.setInt(7, num); // ÂüÁ¶±Û ¹øÈ£(»õ ±ÛÀÌ¹Ç·Î ÀÚ½ÅÀÌ ÂüÁ¶±ÛÀÌ µÊ)
+			ps.setInt(7, num); // ì°¸ì¡°ê¸€ ë²ˆí˜¸(ìƒˆ ê¸€ì´ë¯€ë¡œ ìì‹ ì´ ì°¸ì¡°ê¸€ì´ ë¨)
 			ps.setInt(8, boardBean.getBoard_re_lev());
 			ps.setInt(9, boardBean.getBoard_re_seq());
 			ps.setInt(10, boardBean.getBoard_readCount());
 			insertCount = ps.executeUpdate();
 			
 		} catch (Exception e) {
-			System.out.println("insertArticle() ¿À·ù "+e.getMessage() );
+			System.out.println("insertArticle() ì˜¤ë¥˜ "+e.getMessage() );
 			e.printStackTrace();
 		} finally {
 			close(ps);
@@ -75,7 +75,7 @@ public class BoardDAO {
 	// --------------insertArticle()---------------
 	
 	// --------------selectListCount()---------------
-	// ÀüÃ¼ °Ô½Ã¹° ¼ö Á¶È¸
+	// ì „ì²´ ê²Œì‹œë¬¼ ìˆ˜ ì¡°íšŒ
 	public int selectListCount() {
 		System.out.println("BoardDAO - selectListCount()~");
 		
@@ -93,7 +93,7 @@ public class BoardDAO {
 				listCount = rs.getInt(1);
 			}
 		} catch (SQLException e) {
-			System.out.println("selectListCount() ¿À·ù "+e.getMessage());
+			System.out.println("selectListCount() ì˜¤ë¥˜ "+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			close(ps);
@@ -104,14 +104,14 @@ public class BoardDAO {
 	}
 	// --------------selectListCount()---------------
 	// --------------selectArticleList()---------------
-	// °Ô½Ã¹° ¸ñ·Ï Á¶È¸
+	// ê²Œì‹œë¬¼ ëª©ë¡ ì¡°íšŒ
 	public ArrayList<BoardBean> selectArticleList(int page, int limit){
 		ArrayList<BoardBean> articleList = null;
 		
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		int startRow = (page - 1) * limit; // Á¶È¸¸¦ ½ÃÀÛÇÒ ·¹ÄÚµå(Çà) ¹øÈ£ °è»ê
+		int startRow = (page - 1) * limit; // ì¡°íšŒë¥¼ ì‹œì‘í•  ë ˆì½”ë“œ(í–‰) ë²ˆí˜¸ ê³„ì‚°
 		
 		try {
 			String sql = "SELECT * FROM board ORDER BY board_re_ref desc, board_re_seq limit ?,?";
@@ -123,10 +123,10 @@ public class BoardDAO {
 			articleList = new ArrayList<BoardBean>();
 			
 			while(rs.next()) {
-				// 1°³ °Ô½Ã¹° Á¤º¸¸¦ ÀúÀåÇÒ BoardBean °´Ã¼ »ı¼º ¹× µ¥ÀÌÅÍ ÀúÀå
+				// 1ê°œ ê²Œì‹œë¬¼ ì •ë³´ë¥¼ ì €ì¥í•  BoardBean ê°ì²´ ìƒì„± ë° ë°ì´í„° ì €ì¥
 				BoardBean article = new BoardBean();
 				
-				// ºñ¹Ğ¹øÈ£´Â Á¦¿Ü
+				// ë¹„ë°€ë²ˆí˜¸ëŠ” ì œì™¸
 				article.setBoard_num(rs.getInt(1));
 				article.setBoard_name(rs.getString(2));
 				article.setBoard_subject(rs.getString(4));
@@ -138,12 +138,12 @@ public class BoardDAO {
 				article.setBoard_readCount(rs.getInt(10));
 				article.setBoard_date(rs.getDate(11));
 				
-				// 1°³ °Ô½Ã¹°À» ÀüÃ¼ °Ô½Ã¹° ÀúÀå °´Ã¼¿¡ Ãß°¡
+				// 1ê°œ ê²Œì‹œë¬¼ì„ ì „ì²´ ê²Œì‹œë¬¼ ì €ì¥ ê°ì²´ì— ì¶”ê°€
 				articleList.add(article);
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("selectArticleList() ¿À·ù "+e.getMessage());
+			System.out.println("selectArticleList() ì˜¤ë¥˜ "+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			close(ps);

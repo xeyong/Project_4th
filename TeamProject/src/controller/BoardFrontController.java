@@ -13,25 +13,25 @@ import action.Action;
 import action.BoardListAction;
 import vo.ActionForward;
 
-@WebServlet("/*.bo")
+@WebServlet("*.bo")
 public class BoardFrontController extends HttpServlet{
 	
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// POST ¹æ½Ä ¿äÃ»¿¡ ´ëÇÑ ÇÑ±Û Ã³¸®
+		// POST ë°©ì‹ ìš”ì²­ì— ëŒ€í•œ í•œê¸€ ì²˜ë¦¬
 		request.setCharacterEncoding("UTF-8");
 		
-		// ¼­ºí¸´ ÁÖ¼Ò °¡Á®¿À±â
+		// ì„œë¸”ë¦¿ ì£¼ì†Œ ê°€ì ¸ì˜¤ê¸°
 		String command = request.getServletPath();
-		System.out.println("¿äÃ» ¼­ºí¸´ ÁÖ¼Ò : "+command);
+		System.out.println("ìš”ì²­ ì„œë¸”ë¦¿ ì£¼ì†Œ : "+command);
 		
-		// °¢ ¿äÃ» Ã³¸®¿¡ ÇÊ¿äÇÑ °´Ã¼¸¦ ´Ù·ç´Â º¯¼ö ¼±¾ğ
+		// ê° ìš”ì²­ ì²˜ë¦¬ì— í•„ìš”í•œ ê°ì²´ë¥¼ ë‹¤ë£¨ëŠ” ë³€ìˆ˜ ì„ ì–¸
 		Action action = null;
 		ActionForward forward = null;
 		
-		// if¹®À» »ç¿ëÇÏ¿© °¢ ¼­ºí¸´ ÁÖ¼Ò ÆÇº° ¹× °¢ ¿äÃ» Ã³¸®¸¦ À§ÇÑ ÀÛ¾÷ ¿äÃ»
+		// ifë¬¸ì„ ì‚¬ìš©í•˜ì—¬ ê° ì„œë¸”ë¦¿ ì£¼ì†Œ íŒë³„ ë° ê° ìš”ì²­ ì²˜ë¦¬ë¥¼ ìœ„í•œ ì‘ì—… ìš”ì²­
 		if(command.equals("/BoradList.bo")) {
-			System.out.println("BoardList.bo ·Î Æ÷¿öµù~");
+			System.out.println("BoardList.bo ë¡œ í¬ì›Œë”©~");
 			action = new BoardListAction();
 			
 			try {
@@ -41,19 +41,19 @@ public class BoardFrontController extends HttpServlet{
 			}
 			
 		}
-		// ------------°øÅëÀûÀ¸·Î ¼öÇàÇÒ Æ÷¿öµù ÀÛ¾÷----------------
+		// ------------ê³µí†µì ìœ¼ë¡œ ìˆ˜í–‰í•  í¬ì›Œë”© ì‘ì—…----------------
 		if(forward != null) {
 			
 			if(forward.isRedirect()) {
-				// Redirect ¹æ½ÄÀÏ °æ¿ì
+				// Redirect ë°©ì‹ì¼ ê²½ìš°
 				response.sendRedirect(forward.getPath());
 			}else {
-				// Dispatcher ¹æ½ÄÀÏ °æ¿ì
+				// Dispatcher ë°©ì‹ì¼ ê²½ìš°
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
 		}
-		// ------------°øÅëÀûÀ¸·Î ¼öÇàÇÒ Æ÷¿öµù ÀÛ¾÷----------------
+		// ------------ê³µí†µì ìœ¼ë¡œ ìˆ˜í–‰í•  í¬ì›Œë”© ì‘ì—…----------------
 		
 	}
 	

@@ -2,7 +2,7 @@ package vo;
 
 import java.sql.Date;
 
-// °Ô½ÃÆÇ Á¤º¸ ÀúÀåÇÒ º¯¼ö ¼³Á¤
+// ê²Œì‹œíŒ ì •ë³´ ì €ì¥í•  ë³€ìˆ˜ ì„¤ì •
 public class BoardBean {
 	private int board_num;
 	private String board_name;

@@ -11,24 +11,24 @@ import vo.BoardBean;
 public class BoardListService {
 	
 	// -------------------getListCount()-------------------
-	// ÀüÃ¼ °Ô½Ã¹° ¼ö ¸®ÅÏÇÏ´Â ¸Ş¼­µå
+	// ì „ì²´ ê²Œì‹œë¬¼ ìˆ˜ ë¦¬í„´í•˜ëŠ” ë©”ì„œë“œ
 	public int getListCount() throws Exception{
 		System.out.println("BoardListService - getListCount()");
 		int listCount = 0;
 		
-		// 1(°øÅë).
+		// 1(ê³µí†µ).
 		Connection con = getConnection();
 		
-		// 2(°øÅë).
+		// 2(ê³µí†µ).
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		
-		// 3(°øÅë).
+		// 3(ê³µí†µ).
 		boardDAO.setConnection(con);
 		
 		// 4.
 		listCount = boardDAO.selectListCount();
 				
-		// 5(°øÅë).
+		// 5(ê³µí†µ).
 		close(con);
 		
 		// 6.
@@ -36,24 +36,24 @@ public class BoardListService {
 	}
 	// -------------------getListCount()-------------------
 	// -------------------getArticleList()-------------------
-	// °Ô½Ã¹° ¸ñ·Ï °¡Á®¿À±â ÀÛ¾÷ ¿äÃ» ¼öÇà
+	// ê²Œì‹œë¬¼ ëª©ë¡ ê°€ì ¸ì˜¤ê¸° ì‘ì—… ìš”ì²­ ìˆ˜í–‰
 	public ArrayList<BoardBean> getArticleList(int page, int limit)throws Exception{
 		System.out.println("BoardListService - getArticleList()");
 		ArrayList<BoardBean> articleList = null;
 		
-		// 1(°øÅë).
+		// 1(ê³µí†µ).
 		Connection con = getConnection();
 		
-		// 2(°øÅë).
+		// 2(ê³µí†µ).
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		
-		// 3(°øÅë).
+		// 3(ê³µí†µ).
 		boardDAO.setConnection(con);
 		
 		// 4.
 		articleList = boardDAO.selectArticleList(page, limit);
 		
-		// 5(°øÅë).
+		// 5(ê³µí†µ).
 		close(con);
 		
 		// 6.
